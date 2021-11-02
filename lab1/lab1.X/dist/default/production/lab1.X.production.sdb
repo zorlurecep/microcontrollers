@@ -1,0 +1,81 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F25K50 ]
+[d frameptr 4065 ]
+"4 /opt/microchip/xc8/v2.32/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v2.32/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 /opt/microchip/xc8/v2.32/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /opt/microchip/xc8/v2.32/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /opt/microchip/xc8/v2.32/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /opt/microchip/xc8/v2.32/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /opt/microchip/xc8/v2.32/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /opt/microchip/xc8/v2.32/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /opt/microchip/xc8/v2.32/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 /opt/microchip/xc8/v2.32/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /opt/microchip/xc8/v2.32/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"40 /home/roza/Documents/source/repos/microcontrollers/lab1.X/mainL1.c
+[v _initChip initChip `(v  1 e 1 0 ]
+"62
+[v _main main `(v  1 e 1 0 ]
+"232 /opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h
+[v _ANSELA ANSELA `VEuc  1 e 1 @3931 ]
+"3472
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"3584
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"3696
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"4155
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"4377
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"4599
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"4933
+[v _CM1CON0 CM1CON0 `VEuc  1 e 1 @3992 ]
+"5241
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
+"7401
+[v _ACTCON ACTCON `VEuc  1 e 1 @4021 ]
+"8898
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"11485
+[v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
+"11547
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"35 /home/roza/Documents/source/repos/microcontrollers/lab1.X/mainL1.c
+[v _data data `C[512]uc  1 e 512 0 ]
+"62
+[v _main main `(v  1 e 1 0 ]
+{
+"74
+[v main@i i `uc  1 a 1 12 ]
+"63
+[v main@dataQueu dataQueu `[8]uc  1 a 8 0 ]
+"64
+[v main@counter counter `i  1 a 2 9 ]
+"65
+[v main@lastIndex lastIndex `uc  1 a 1 11 ]
+"66
+[v main@average average `uc  1 a 1 8 ]
+"109
+} 0
+"40
+[v _initChip initChip `(v  1 e 1 0 ]
+{
+"60
+} 0

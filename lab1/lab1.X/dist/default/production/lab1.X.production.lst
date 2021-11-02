@@ -1,0 +1,1100 @@
+
+
+Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
+                                                                                               Sat Oct 30 20:03:28 2021
+
+Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
+     1                           	processor	18F25K50
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	mediumconst,global,reloc=2,class=MEDIUMCONST,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     8                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     9                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    12                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    13  0000                     
+    14                           ; Version 2.20
+    15                           ; Generated 05/05/2020 GMT
+    16                           ; 
+    17                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    18                           ; All rights reserved.
+    19                           ; 
+    20                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    21                           ; 
+    22                           ; Redistribution and use in source and binary forms, with or without modification, are
+    23                           ; permitted provided that the following conditions are met:
+    24                           ; 
+    25                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    26                           ;        conditions and the following disclaimer.
+    27                           ; 
+    28                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    29                           ;        of conditions and the following disclaimer in the documentation and/or other
+    30                           ;        materials provided with the distribution.
+    31                           ; 
+    32                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    33                           ;        software without specific prior written permission.
+    34                           ; 
+    35                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    36                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    37                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    38                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    39                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    40                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    41                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    42                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    43                           ; 
+    44                           ; 
+    45                           ; Code-generator required, PIC18F25K50 Definitions
+    46                           ; 
+    47                           ; SFR Addresses
+    48  0000                     
+    49                           	psect	mediumconst
+    50  007DFE                     __pmediumconst:
+    51                           	callstack 0
+    52  007DFE  00                 	db	0
+    53  007DFF                     _data:
+    54                           	callstack 0
+    55  007DFF  08                 	db	8
+    56  007E00  00                 	db	0
+    57  007E01  15                 	db	21
+    58  007E02  24                 	db	36
+    59  007E03  00                 	db	0
+    60  007E04  06                 	db	6
+    61  007E05  38                 	db	56
+    62  007E06  00                 	db	0
+    63  007E07  00                 	db	0
+    64  007E08  49                 	db	73
+    65  007E09  30                 	db	48
+    66  007E0A  00                 	db	0
+    67  007E0B  17                 	db	23
+    68  007E0C  15                 	db	21
+    69  007E0D  35                 	db	53
+    70  007E0E  0D                 	db	13
+    71  007E0F  08                 	db	8
+    72  007E10  00                 	db	0
+    73  007E11  24                 	db	36
+    74  007E12  40                 	db	64
+    75  007E13  2B                 	db	43
+    76  007E14  4D                 	db	77
+    77  007E15  4E                 	db	78
+    78  007E16  10                 	db	16
+    79  007E17  53                 	db	83
+    80  007E18  00                 	db	0
+    81  007E19  00                 	db	0
+    82  007E1A  24                 	db	36
+    83  007E1B  19                 	db	25
+    84  007E1C  00                 	db	0
+    85  007E1D  4D                 	db	77
+    86  007E1E  3F                 	db	63
+    87  007E1F  00                 	db	0
+    88  007E20  1D                 	db	29
+    89  007E21  00                 	db	0
+    90  007E22  4B                 	db	75
+    91  007E23  00                 	db	0
+    92  007E24  24                 	db	36
+    93  007E25  00                 	db	0
+    94  007E26  13                 	db	19
+    95  007E27  0A                 	db	10
+    96  007E28  65                 	db	101
+    97  007E29  00                 	db	0
+    98  007E2A  00                 	db	0
+    99  007E2B  66                 	db	102
+   100  007E2C  3E                 	db	62
+   101  007E2D  10                 	db	16
+   102  007E2E  60                 	db	96
+   103  007E2F  68                 	db	104
+   104  007E30  5E                 	db	94
+   105  007E31  30                 	db	48
+   106  007E32  19                 	db	25
+   107  007E33  47                 	db	71
+   108  007E34  69                 	db	105
+   109  007E35  16                 	db	22
+   110  007E36  56                 	db	86
+   111  007E37  01                 	db	1
+   112  007E38  1C                 	db	28
+   113  007E39  00                 	db	0
+   114  007E3A  1C                 	db	28
+   115  007E3B  06                 	db	6
+   116  007E3C  07                 	db	7
+   117  007E3D  2D                 	db	45
+   118  007E3E  29                 	db	41
+   119  007E3F  24                 	db	36
+   120  007E40  04                 	db	4
+   121  007E41  2A                 	db	42
+   122  007E42  0E                 	db	14
+   123  007E43  05                 	db	5
+   124  007E44  6C                 	db	108
+   125  007E45  26                 	db	38
+   126  007E46  72                 	db	114
+   127  007E47  32                 	db	50
+   128  007E48  5D                 	db	93
+   129  007E49  77                 	db	119
+   130  007E4A  4F                 	db	79
+   131  007E4B  51                 	db	81
+   132  007E4C  8C                 	db	140
+   133  007E4D  38                 	db	56
+   134  007E4E  29                 	db	41
+   135  007E4F  1B                 	db	27
+   136  007E50  29                 	db	41
+   137  007E51  35                 	db	53
+   138  007E52  7A                 	db	122
+   139  007E53  67                 	db	103
+   140  007E54  36                 	db	54
+   141  007E55  41                 	db	65
+   142  007E56  51                 	db	81
+   143  007E57  67                 	db	103
+   144  007E58  61                 	db	97
+   145  007E59  50                 	db	80
+   146  007E5A  79                 	db	121
+   147  007E5B  1F                 	db	31
+   148  007E5C  66                 	db	102
+   149  007E5D  74                 	db	116
+   150  007E5E  84                 	db	132
+   151  007E5F  51                 	db	81
+   152  007E60  9E                 	db	158
+   153  007E61  40                 	db	64
+   154  007E62  3C                 	db	60
+   155  007E63  81                 	db	129
+   156  007E64  91                 	db	145
+   157  007E65  41                 	db	65
+   158  007E66  96                 	db	150
+   159  007E67  2C                 	db	44
+   160  007E68  90                 	db	144
+   161  007E69  6D                 	db	109
+   162  007E6A  52                 	db	82
+   163  007E6B  A6                 	db	166
+   164  007E6C  66                 	db	102
+   165  007E6D  AD                 	db	173
+   166  007E6E  67                 	db	103
+   167  007E6F  83                 	db	131
+   168  007E70  74                 	db	116
+   169  007E71  96                 	db	150
+   170  007E72  99                 	db	153
+   171  007E73  AF                 	db	175
+   172  007E74  AC                 	db	172
+   173  007E75  5B                 	db	91
+   174  007E76  63                 	db	99
+   175  007E77  9D                 	db	157
+   176  007E78  4A                 	db	74
+   177  007E79  B4                 	db	180
+   178  007E7A  8B                 	db	139
+   179  007E7B  96                 	db	150
+   180  007E7C  57                 	db	87
+   181  007E7D  8F                 	db	143
+   182  007E7E  AF                 	db	175
+   183  007E7F  54                 	db	84
+   184  007E80  B9                 	db	185
+   185  007E81  7B                 	db	123
+   186  007E82  7A                 	db	122
+   187  007E83  A5                 	db	165
+   188  007E84  73                 	db	115
+   189  007E85  B4                 	db	180
+   190  007E86  9A                 	db	154
+   191  007E87  93                 	db	147
+   192  007E88  C6                 	db	198
+   193  007E89  BF                 	db	191
+   194  007E8A  88                 	db	136
+   195  007E8B  86                 	db	134
+   196  007E8C  9E                 	db	158
+   197  007E8D  76                 	db	118
+   198  007E8E  63                 	db	99
+   199  007E8F  6D                 	db	109
+   200  007E90  A4                 	db	164
+   201  007E91  CB                 	db	203
+   202  007E92  A5                 	db	165
+   203  007E93  B1                 	db	177
+   204  007E94  8A                 	db	138
+   205  007E95  85                 	db	133
+   206  007E96  61                 	db	97
+   207  007E97  6E                 	db	110
+   208  007E98  85                 	db	133
+   209  007E99  D9                 	db	217
+   210  007E9A  C2                 	db	194
+   211  007E9B  C2                 	db	194
+   212  007E9C  7A                 	db	122
+   213  007E9D  93                 	db	147
+   214  007E9E  CA                 	db	202
+   215  007E9F  CF                 	db	207
+   216  007EA0  A1                 	db	161
+   217  007EA1  88                 	db	136
+   218  007EA2  C6                 	db	198
+   219  007EA3  A8                 	db	168
+   220  007EA4  71                 	db	113
+   221  007EA5  A0                 	db	160
+   222  007EA6  6B                 	db	107
+   223  007EA7  77                 	db	119
+   224  007EA8  D9                 	db	217
+   225  007EA9  9E                 	db	158
+   226  007EAA  B6                 	db	182
+   227  007EAB  85                 	db	133
+   228  007EAC  B6                 	db	182
+   229  007EAD  73                 	db	115
+   230  007EAE  EB                 	db	235
+   231  007EAF  D7                 	db	215
+   232  007EB0  EF                 	db	239
+   233  007EB1  97                 	db	151
+   234  007EB2  C7                 	db	199
+   235  007EB3  F0                 	db	240
+   236  007EB4  ED                 	db	237
+   237  007EB5  E2                 	db	226
+   238  007EB6  C5                 	db	197
+   239  007EB7  E0                 	db	224
+   240  007EB8  B9                 	db	185
+   241  007EB9  DE                 	db	222
+   242  007EBA  87                 	db	135
+   243  007EBB  CC                 	db	204
+   244  007EBC  9F                 	db	159
+   245  007EBD  BE                 	db	190
+   246  007EBE  85                 	db	133
+   247  007EBF  CA                 	db	202
+   248  007EC0  FF                 	db	255
+   249  007EC1  9D                 	db	157
+   250  007EC2  B6                 	db	182
+   251  007EC3  91                 	db	145
+   252  007EC4  F5                 	db	245
+   253  007EC5  EC                 	db	236
+   254  007EC6  B1                 	db	177
+   255  007EC7  9D                 	db	157
+   256  007EC8  FB                 	db	251
+   257  007EC9  D6                 	db	214
+   258  007ECA  FF                 	db	255
+   259  007ECB  AD                 	db	173
+   260  007ECC  91                 	db	145
+   261  007ECD  AF                 	db	175
+   262  007ECE  C3                 	db	195
+   263  007ECF  93                 	db	147
+   264  007ED0  9A                 	db	154
+   265  007ED1  D1                 	db	209
+   266  007ED2  FF                 	db	255
+   267  007ED3  C1                 	db	193
+   268  007ED4  B3                 	db	179
+   269  007ED5  F3                 	db	243
+   270  007ED6  AE                 	db	174
+   271  007ED7  B2                 	db	178
+   272  007ED8  F0                 	db	240
+   273  007ED9  AF                 	db	175
+   274  007EDA  B7                 	db	183
+   275  007EDB  FF                 	db	255
+   276  007EDC  B5                 	db	181
+   277  007EDD  BA                 	db	186
+   278  007EDE  A9                 	db	169
+   279  007EDF  B1                 	db	177
+   280  007EE0  A7                 	db	167
+   281  007EE1  FC                 	db	252
+   282  007EE2  FF                 	db	255
+   283  007EE3  F7                 	db	247
+   284  007EE4  DC                 	db	220
+   285  007EE5  BC                 	db	188
+   286  007EE6  F1                 	db	241
+   287  007EE7  FF                 	db	255
+   288  007EE8  E9                 	db	233
+   289  007EE9  FF                 	db	255
+   290  007EEA  DC                 	db	220
+   291  007EEB  FF                 	db	255
+   292  007EEC  FF                 	db	255
+   293  007EED  E5                 	db	229
+   294  007EEE  DE                 	db	222
+   295  007EEF  FF                 	db	255
+   296  007EF0  FF                 	db	255
+   297  007EF1  FB                 	db	251
+   298  007EF2  C7                 	db	199
+   299  007EF3  FF                 	db	255
+   300  007EF4  FF                 	db	255
+   301  007EF5  FF                 	db	255
+   302  007EF6  FF                 	db	255
+   303  007EF7  FF                 	db	255
+   304  007EF8  D5                 	db	213
+   305  007EF9  D8                 	db	216
+   306  007EFA  EC                 	db	236
+   307  007EFB  F1                 	db	241
+   308  007EFC  BD                 	db	189
+   309  007EFD  FF                 	db	255
+   310  007EFE  FF                 	db	255
+   311  007EFF  D7                 	db	215
+   312  007F00  D7                 	db	215
+   313  007F01  EF                 	db	239
+   314  007F02  FF                 	db	255
+   315  007F03  C2                 	db	194
+   316  007F04  BD                 	db	189
+   317  007F05  CE                 	db	206
+   318  007F06  FF                 	db	255
+   319  007F07  FB                 	db	251
+   320  007F08  D6                 	db	214
+   321  007F09  FF                 	db	255
+   322  007F0A  FF                 	db	255
+   323  007F0B  FF                 	db	255
+   324  007F0C  D1                 	db	209
+   325  007F0D  C0                 	db	192
+   326  007F0E  D2                 	db	210
+   327  007F0F  FF                 	db	255
+   328  007F10  FF                 	db	255
+   329  007F11  FF                 	db	255
+   330  007F12  B6                 	db	182
+   331  007F13  E8                 	db	232
+   332  007F14  FD                 	db	253
+   333  007F15  CD                 	db	205
+   334  007F16  BE                 	db	190
+   335  007F17  FF                 	db	255
+   336  007F18  C8                 	db	200
+   337  007F19  ED                 	db	237
+   338  007F1A  B8                 	db	184
+   339  007F1B  FF                 	db	255
+   340  007F1C  FF                 	db	255
+   341  007F1D  E6                 	db	230
+   342  007F1E  FF                 	db	255
+   343  007F1F  E0                 	db	224
+   344  007F20  C4                 	db	196
+   345  007F21  D1                 	db	209
+   346  007F22  D7                 	db	215
+   347  007F23  F2                 	db	242
+   348  007F24  E7                 	db	231
+   349  007F25  B6                 	db	182
+   350  007F26  ED                 	db	237
+   351  007F27  9E                 	db	158
+   352  007F28  E6                 	db	230
+   353  007F29  F1                 	db	241
+   354  007F2A  DE                 	db	222
+   355  007F2B  B6                 	db	182
+   356  007F2C  F3                 	db	243
+   357  007F2D  A2                 	db	162
+   358  007F2E  C4                 	db	196
+   359  007F2F  E1                 	db	225
+   360  007F30  A5                 	db	165
+   361  007F31  E1                 	db	225
+   362  007F32  A1                 	db	161
+   363  007F33  E6                 	db	230
+   364  007F34  B9                 	db	185
+   365  007F35  BA                 	db	186
+   366  007F36  FF                 	db	255
+   367  007F37  C8                 	db	200
+   368  007F38  CF                 	db	207
+   369  007F39  F3                 	db	243
+   370  007F3A  D3                 	db	211
+   371  007F3B  CB                 	db	203
+   372  007F3C  EC                 	db	236
+   373  007F3D  CC                 	db	204
+   374  007F3E  C9                 	db	201
+   375  007F3F  D3                 	db	211
+   376  007F40  AF                 	db	175
+   377  007F41  91                 	db	145
+   378  007F42  89                 	db	137
+   379  007F43  F8                 	db	248
+   380  007F44  85                 	db	133
+   381  007F45  8E                 	db	142
+   382  007F46  BD                 	db	189
+   383  007F47  D0                 	db	208
+   384  007F48  E2                 	db	226
+   385  007F49  94                 	db	148
+   386  007F4A  D2                 	db	210
+   387  007F4B  A2                 	db	162
+   388  007F4C  BC                 	db	188
+   389  007F4D  AF                 	db	175
+   390  007F4E  B0                 	db	176
+   391  007F4F  7D                 	db	125
+   392  007F50  C3                 	db	195
+   393  007F51  B9                 	db	185
+   394  007F52  99                 	db	153
+   395  007F53  BE                 	db	190
+   396  007F54  86                 	db	134
+   397  007F55  8D                 	db	141
+   398  007F56  91                 	db	145
+   399  007F57  AE                 	db	174
+   400  007F58  89                 	db	137
+   401  007F59  D5                 	db	213
+   402  007F5A  6C                 	db	108
+   403  007F5B  DF                 	db	223
+   404  007F5C  D3                 	db	211
+   405  007F5D  DF                 	db	223
+   406  007F5E  B6                 	db	182
+   407  007F5F  D1                 	db	209
+   408  007F60  9B                 	db	155
+   409  007F61  68                 	db	104
+   410  007F62  67                 	db	103
+   411  007F63  D3                 	db	211
+   412  007F64  85                 	db	133
+   413  007F65  A0                 	db	160
+   414  007F66  93                 	db	147
+   415  007F67  88                 	db	136
+   416  007F68  98                 	db	152
+   417  007F69  91                 	db	145
+   418  007F6A  C5                 	db	197
+   419  007F6B  98                 	db	152
+   420  007F6C  79                 	db	121
+   421  007F6D  54                 	db	84
+   422  007F6E  A5                 	db	165
+   423  007F6F  64                 	db	100
+   424  007F70  85                 	db	133
+   425  007F71  54                 	db	84
+   426  007F72  A0                 	db	160
+   427  007F73  B7                 	db	183
+   428  007F74  A6                 	db	166
+   429  007F75  60                 	db	96
+   430  007F76  69                 	db	105
+   431  007F77  9C                 	db	156
+   432  007F78  B8                 	db	184
+   433  007F79  BF                 	db	191
+   434  007F7A  89                 	db	137
+   435  007F7B  4F                 	db	79
+   436  007F7C  4C                 	db	76
+   437  007F7D  95                 	db	149
+   438  007F7E  6D                 	db	109
+   439  007F7F  69                 	db	105
+   440  007F80  53                 	db	83
+   441  007F81  A4                 	db	164
+   442  007F82  6A                 	db	106
+   443  007F83  A0                 	db	160
+   444  007F84  3D                 	db	61
+   445  007F85  93                 	db	147
+   446  007F86  A4                 	db	164
+   447  007F87  46                 	db	70
+   448  007F88  7E                 	db	126
+   449  007F89  47                 	db	71
+   450  007F8A  89                 	db	137
+   451  007F8B  41                 	db	65
+   452  007F8C  8B                 	db	139
+   453  007F8D  63                 	db	99
+   454  007F8E  6C                 	db	108
+   455  007F8F  7E                 	db	126
+   456  007F90  97                 	db	151
+   457  007F91  35                 	db	53
+   458  007F92  89                 	db	137
+   459  007F93  AB                 	db	171
+   460  007F94  3E                 	db	62
+   461  007F95  2F                 	db	47
+   462  007F96  74                 	db	116
+   463  007F97  76                 	db	118
+   464  007F98  A5                 	db	165
+   465  007F99  55                 	db	85
+   466  007F9A  5A                 	db	90
+   467  007F9B  72                 	db	114
+   468  007F9C  8E                 	db	142
+   469  007F9D  69                 	db	105
+   470  007F9E  7B                 	db	123
+   471  007F9F  9A                 	db	154
+   472  007FA0  3B                 	db	59
+   473  007FA1  76                 	db	118
+   474  007FA2  4A                 	db	74
+   475  007FA3  94                 	db	148
+   476  007FA4  37                 	db	55
+   477  007FA5  85                 	db	133
+   478  007FA6  92                 	db	146
+   479  007FA7  91                 	db	145
+   480  007FA8  4E                 	db	78
+   481  007FA9  90                 	db	144
+   482  007FAA  7D                 	db	125
+   483  007FAB  64                 	db	100
+   484  007FAC  69                 	db	105
+   485  007FAD  38                 	db	56
+   486  007FAE  34                 	db	52
+   487  007FAF  2A                 	db	42
+   488  007FB0  7E                 	db	126
+   489  007FB1  81                 	db	129
+   490  007FB2  86                 	db	134
+   491  007FB3  84                 	db	132
+   492  007FB4  0D                 	db	13
+   493  007FB5  70                 	db	112
+   494  007FB6  13                 	db	19
+   495  007FB7  12                 	db	18
+   496  007FB8  20                 	db	32
+   497  007FB9  2C                 	db	44
+   498  007FBA  6B                 	db	107
+   499  007FBB  08                 	db	8
+   500  007FBC  40                 	db	64
+   501  007FBD  18                 	db	24
+   502  007FBE  04                 	db	4
+   503  007FBF  27                 	db	39
+   504  007FC0  00                 	db	0
+   505  007FC1  34                 	db	52
+   506  007FC2  6A                 	db	106
+   507  007FC3  28                 	db	40
+   508  007FC4  20                 	db	32
+   509  007FC5  69                 	db	105
+   510  007FC6  0F                 	db	15
+   511  007FC7  56                 	db	86
+   512  007FC8  03                 	db	3
+   513  007FC9  75                 	db	117
+   514  007FCA  33                 	db	51
+   515  007FCB  00                 	db	0
+   516  007FCC  49                 	db	73
+   517  007FCD  19                 	db	25
+   518  007FCE  51                 	db	81
+   519  007FCF  4A                 	db	74
+   520  007FD0  63                 	db	99
+   521  007FD1  00                 	db	0
+   522  007FD2  6D                 	db	109
+   523  007FD3  3E                 	db	62
+   524  007FD4  54                 	db	84
+   525  007FD5  13                 	db	19
+   526  007FD6  59                 	db	89
+   527  007FD7  34                 	db	52
+   528  007FD8  5E                 	db	94
+   529  007FD9  5A                 	db	90
+   530  007FDA  5B                 	db	91
+   531  007FDB  2D                 	db	45
+   532  007FDC  37                 	db	55
+   533  007FDD  45                 	db	69
+   534  007FDE  4F                 	db	79
+   535  007FDF  4E                 	db	78
+   536  007FE0  4F                 	db	79
+   537  007FE1  00                 	db	0
+   538  007FE2  03                 	db	3
+   539  007FE3  00                 	db	0
+   540  007FE4  00                 	db	0
+   541  007FE5  39                 	db	57
+   542  007FE6  00                 	db	0
+   543  007FE7  3B                 	db	59
+   544  007FE8  24                 	db	36
+   545  007FE9  20                 	db	32
+   546  007FEA  00                 	db	0
+   547  007FEB  05                 	db	5
+   548  007FEC  00                 	db	0
+   549  007FED  00                 	db	0
+   550  007FEE  3A                 	db	58
+   551  007FEF  00                 	db	0
+   552  007FF0  1A                 	db	26
+   553  007FF1  43                 	db	67
+   554  007FF2  00                 	db	0
+   555  007FF3  00                 	db	0
+   556  007FF4  24                 	db	36
+   557  007FF5  00                 	db	0
+   558  007FF6  3D                 	db	61
+   559  007FF7  00                 	db	0
+   560  007FF8  33                 	db	51
+   561  007FF9  00                 	db	0
+   562  007FFA  05                 	db	5
+   563  007FFB  00                 	db	0
+   564  007FFC  00                 	db	0
+   565  007FFD  03                 	db	3
+   566  007FFE  1A                 	db	26
+   567  007FFF                     __end_of_data:
+   568                           	callstack 0
+   569  0000                     _ANSELA	set	3931
+   570  0000                     _LATC	set	3979
+   571  0000                     _TRISC	set	3988
+   572  0000                     _LATB	set	3978
+   573  0000                     _TRISB	set	3987
+   574  0000                     _CM1CON0	set	3992
+   575  0000                     _ADCON1	set	4033
+   576  0000                     _LATA	set	3977
+   577  0000                     _TRISA	set	3986
+   578  0000                     _ACTCON	set	4021
+   579  0000                     _OSCCON2	set	4050
+   580  0000                     _OSCCON	set	4051
+   581  0000                     _OSCTUNE	set	3995
+   582  007FFF  00                 	db	0	; dummy byte at the end
+   583  0000                     
+   584                           ; #config settings
+   585                           
+   586                           	psect	cinit
+   587  007CFE                     __pcinit:
+   588                           	callstack 0
+   589  007CFE                     start_initialization:
+   590                           	callstack 0
+   591  007CFE                     __initialization:
+   592                           	callstack 0
+   593                           
+   594                           ; Clear objects allocated to COMRAM (8 bytes)
+   595  007CFE  EE00  F00E         	lfsr	0,__pbssCOMRAM
+   596  007D02  0E08               	movlw	8
+   597  007D04                     clear_0:
+   598  007D04  6AEE               	clrf	postinc0,c
+   599  007D06  06E8               	decf	wreg,f,c
+   600  007D08  E1FD               	bnz	clear_0
+   601  007D0A                     end_of_initialization:
+   602                           	callstack 0
+   603  007D0A                     __end_of__initialization:
+   604                           	callstack 0
+   605  007D0A  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   606  007D0C  6EF8               	movwf	tblptru,c
+   607  007D0E  0100               	movlb	0
+   608  007D10  EFA6  F03E         	goto	_main	;jump to C main() function
+   609                           
+   610                           	psect	bssCOMRAM
+   611  00000E                     __pbssCOMRAM:
+   612                           	callstack 0
+   613  00000E                     	ds	8
+   614                           
+   615                           	psect	cstackCOMRAM
+   616  000001                     __pcstackCOMRAM:
+   617                           	callstack 0
+   618  000001                     main@dataQueu:
+   619                           	callstack 0
+   620                           
+   621                           ; 8 bytes @ 0x0
+   622  000001                     	ds	8
+   623  000009                     main@average:
+   624                           	callstack 0
+   625                           
+   626                           ; 1 bytes @ 0x8
+   627  000009                     	ds	1
+   628  00000A                     main@counter:
+   629                           	callstack 0
+   630                           
+   631                           ; 2 bytes @ 0x9
+   632  00000A                     	ds	2
+   633  00000C                     main@lastIndex:
+   634                           	callstack 0
+   635                           
+   636                           ; 1 bytes @ 0xB
+   637  00000C                     	ds	1
+   638  00000D                     main@i:
+   639                           	callstack 0
+   640                           
+   641                           ; 1 bytes @ 0xC
+   642  00000D                     	ds	1
+   643                           
+   644 ;;
+   645 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   646 ;;
+   647 ;; *************** function _main *****************
+   648 ;; Defined at:
+   649 ;;		line 62 in file "mainL1.c"
+   650 ;; Parameters:    Size  Location     Type
+   651 ;;		None
+   652 ;; Auto vars:     Size  Location     Type
+   653 ;;  i               1   12[COMRAM] unsigned char 
+   654 ;;  dataQueu        8    0[COMRAM] unsigned char [8]
+   655 ;;  counter         2    9[COMRAM] int 
+   656 ;;  lastIndex       1   11[COMRAM] unsigned char 
+   657 ;;  average         1    8[COMRAM] unsigned char 
+   658 ;; Return value:  Size  Location     Type
+   659 ;;                  1    wreg      void 
+   660 ;; Registers used:
+   661 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   662 ;; Tracked objects:
+   663 ;;		On entry : 0/0
+   664 ;;		On exit  : 0/0
+   665 ;;		Unchanged: 0/0
+   666 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   667 ;;      Params:         0       0       0       0       0       0       0       0       0
+   668 ;;      Locals:        13       0       0       0       0       0       0       0       0
+   669 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   670 ;;      Totals:        13       0       0       0       0       0       0       0       0
+   671 ;;Total ram usage:       13 bytes
+   672 ;; Hardware stack levels required when called: 1
+   673 ;; This function calls:
+   674 ;;		_initChip
+   675 ;; This function is called by:
+   676 ;;		Startup code after reset
+   677 ;; This function uses a non-reentrant model
+   678 ;;
+   679                           
+   680                           	psect	text0
+   681  007D4C                     __ptext0:
+   682                           	callstack 0
+   683  007D4C                     _main:
+   684                           	callstack 30
+   685  007D4C                     
+   686                           ;mainL1.c: 63:     unsigned char dataQueu[] = {0, 0, 0, 0, 0, 0, 0, 0};
+   687  007D4C  EE20  F001         	lfsr	2,main@dataQueu
+   688  007D50  0E07               	movlw	7
+   689  007D52                     u11:
+   690  007D52  6ADE               	clrf	postinc2,c
+   691  007D54  06E8               	decf	wreg,f,c
+   692  007D56  E2FD               	bc	u11
+   693  007D58                     
+   694                           ;mainL1.c: 64:     int counter = 0;
+   695  007D58  0E00               	movlw	0
+   696  007D5A  6E0B               	movwf	(main@counter+1)^0,c
+   697  007D5C  0E00               	movlw	0
+   698  007D5E  6E0A               	movwf	main@counter^0,c
+   699  007D60                     
+   700                           ;mainL1.c: 65:     char lastIndex = 0;
+   701  007D60  0E00               	movlw	0
+   702  007D62  6E0C               	movwf	main@lastIndex^0,c
+   703  007D64                     
+   704                           ;mainL1.c: 66:     unsigned char average = 0;
+   705  007D64  0E00               	movlw	0
+   706  007D66  6E09               	movwf	main@average^0,c
+   707  007D68                     
+   708                           ;mainL1.c: 68:     initChip();
+   709  007D68  EC8A  F03E         	call	_initChip	;wreg free
+   710  007D6C                     l733:
+   711                           
+   712                           ;mainL1.c: 71:     {;mainL1.c: 72:         dataQueu[lastIndex] = data[counter];
+   713  007D6C  0EFF               	movlw	low _data
+   714  007D6E  240A               	addwf	main@counter^0,w,c
+   715  007D70  6EF6               	movwf	tblptrl,c
+   716  007D72  0E7D               	movlw	high _data
+   717  007D74  200B               	addwfc	(main@counter+1)^0,w,c
+   718  007D76  6EF7               	movwf	tblptrh,c
+   719  007D78                     	if	0	;There are less than 3 active tblptr bytes
+   720  007D78                     	endif
+   721  007D78  0E01               	movlw	low main@dataQueu
+   722  007D7A  240C               	addwf	main@lastIndex^0,w,c
+   723  007D7C  6ED9               	movwf	fsr2l,c
+   724  007D7E  6ADA               	clrf	fsr2h,c
+   725  007D80  0E00               	movlw	high main@dataQueu
+   726  007D82  22DA               	addwfc	fsr2h,f,c
+   727  007D84  0008               	tblrd		*
+   728  007D86  CFF5 FFDF          	movff	tablat,indf2
+   729  007D8A                     
+   730                           ;mainL1.c: 74:         for (char i = 0; i < 8; i++) {
+   731  007D8A  0E00               	movlw	0
+   732  007D8C  6E0D               	movwf	main@i^0,c
+   733  007D8E                     l741:
+   734                           
+   735                           ;mainL1.c: 75:             average += dataQueu[i];
+   736  007D8E  0E01               	movlw	low main@dataQueu
+   737  007D90  240D               	addwf	main@i^0,w,c
+   738  007D92  6ED9               	movwf	fsr2l,c
+   739  007D94  6ADA               	clrf	fsr2h,c
+   740  007D96  0E00               	movlw	high main@dataQueu
+   741  007D98  22DA               	addwfc	fsr2h,f,c
+   742  007D9A  50DF               	movf	indf2,w,c
+   743  007D9C  2609               	addwf	main@average^0,f,c
+   744  007D9E                     
+   745                           ;mainL1.c: 76:         }
+   746  007D9E  2A0D               	incf	main@i^0,f,c
+   747  007DA0  0E07               	movlw	7
+   748  007DA2  640D               	cpfsgt	main@i^0,c
+   749  007DA4  EFD6  F03E         	goto	u21
+   750  007DA8  EFD8  F03E         	goto	u20
+   751  007DAC                     u21:
+   752  007DAC  EFC7  F03E         	goto	l741
+   753  007DB0                     u20:
+   754  007DB0                     
+   755                           ;mainL1.c: 79:         average = average >> 3;
+   756  007DB0  3809               	swapf	main@average^0,w,c
+   757  007DB2  46E8               	rlncf	wreg,f,c
+   758  007DB4  0B1F               	andlw	31
+   759  007DB6  6E09               	movwf	main@average^0,c
+   760  007DB8                     
+   761                           ;mainL1.c: 94:         counter++;
+   762  007DB8  4A0A               	infsnz	main@counter^0,f,c
+   763  007DBA  2A0B               	incf	(main@counter+1)^0,f,c
+   764  007DBC                     
+   765                           ;mainL1.c: 95:         if (counter >= 512) {
+   766  007DBC  BE0B               	btfsc	(main@counter+1)^0,7,c
+   767  007DBE  EFE8  F03E         	goto	u31
+   768  007DC2  0E02               	movlw	2
+   769  007DC4  5C0B               	subwf	(main@counter+1)^0,w,c
+   770  007DC6  A0D8               	btfss	status,0,c
+   771  007DC8  EFE8  F03E         	goto	u31
+   772  007DCC  EFEA  F03E         	goto	u30
+   773  007DD0                     u31:
+   774  007DD0  EFEE  F03E         	goto	l755
+   775  007DD4                     u30:
+   776  007DD4                     
+   777                           ;mainL1.c: 96:             counter = 0;
+   778  007DD4  0E00               	movlw	0
+   779  007DD6  6E0B               	movwf	(main@counter+1)^0,c
+   780  007DD8  0E00               	movlw	0
+   781  007DDA  6E0A               	movwf	main@counter^0,c
+   782  007DDC                     l755:
+   783                           
+   784                           ;mainL1.c: 100:         lastIndex++;
+   785  007DDC  2A0C               	incf	main@lastIndex^0,f,c
+   786  007DDE                     
+   787                           ;mainL1.c: 101:         if (lastIndex >= 8) {
+   788  007DDE  0E07               	movlw	7
+   789  007DE0  640C               	cpfsgt	main@lastIndex^0,c
+   790  007DE2  EFF5  F03E         	goto	u41
+   791  007DE6  EFF7  F03E         	goto	u40
+   792  007DEA                     u41:
+   793  007DEA  EFF9  F03E         	goto	l42
+   794  007DEE                     u40:
+   795  007DEE                     
+   796                           ;mainL1.c: 102:             lastIndex = 0;
+   797  007DEE  0E00               	movlw	0
+   798  007DF0  6E0C               	movwf	main@lastIndex^0,c
+   799  007DF2                     l42:
+   800                           
+   801                           ;mainL1.c: 106:         average = 0;
+   802  007DF2  0E00               	movlw	0
+   803  007DF4  6E09               	movwf	main@average^0,c
+   804  007DF6  EFB6  F03E         	goto	l733
+   805  007DFA  EF00  F008         	goto	start
+   806  007DFE                     __end_of_main:
+   807                           	callstack 0
+   808                           
+   809 ;; *************** function _initChip *****************
+   810 ;; Defined at:
+   811 ;;		line 40 in file "mainL1.c"
+   812 ;; Parameters:    Size  Location     Type
+   813 ;;		None
+   814 ;; Auto vars:     Size  Location     Type
+   815 ;;		None
+   816 ;; Return value:  Size  Location     Type
+   817 ;;                  1    wreg      void 
+   818 ;; Registers used:
+   819 ;;		wreg, status,2
+   820 ;; Tracked objects:
+   821 ;;		On entry : 0/0
+   822 ;;		On exit  : 0/0
+   823 ;;		Unchanged: 0/0
+   824 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+   825 ;;      Params:         0       0       0       0       0       0       0       0       0
+   826 ;;      Locals:         0       0       0       0       0       0       0       0       0
+   827 ;;      Temps:          0       0       0       0       0       0       0       0       0
+   828 ;;      Totals:         0       0       0       0       0       0       0       0       0
+   829 ;;Total ram usage:        0 bytes
+   830 ;; Hardware stack levels used: 1
+   831 ;; This function calls:
+   832 ;;		Nothing
+   833 ;; This function is called by:
+   834 ;;		_main
+   835 ;; This function uses a non-reentrant model
+   836 ;;
+   837                           
+   838                           	psect	text1
+   839  007D14                     __ptext1:
+   840                           	callstack 0
+   841  007D14                     _initChip:
+   842                           	callstack 30
+   843  007D14                     
+   844                           ;mainL1.c: 42:     OSCTUNE = 0x80;
+   845  007D14  0E80               	movlw	128
+   846  007D16  6E9B               	movwf	155,c	;volatile
+   847                           
+   848                           ;mainL1.c: 43:     OSCCON = 0x70;
+   849  007D18  0E70               	movlw	112
+   850  007D1A  6ED3               	movwf	211,c	;volatile
+   851                           
+   852                           ;mainL1.c: 44:     OSCCON2 = 0x10;
+   853  007D1C  0E10               	movlw	16
+   854  007D1E  6ED2               	movwf	210,c	;volatile
+   855                           
+   856                           ;mainL1.c: 47:     ACTCON = 0x90;
+   857  007D20  0E90               	movlw	144
+   858  007D22  6EB5               	movwf	181,c	;volatile
+   859                           
+   860                           ;mainL1.c: 49:     TRISA = 0b00000001;
+   861  007D24  0E01               	movlw	1
+   862  007D26  6E92               	movwf	146,c	;volatile
+   863                           
+   864                           ;mainL1.c: 50:     LATA = 0x00;
+   865  007D28  0E00               	movlw	0
+   866  007D2A  6E89               	movwf	137,c	;volatile
+   867                           
+   868                           ;mainL1.c: 51:     ANSELA = 0b00000000;
+   869  007D2C  0E00               	movlw	0
+   870  007D2E  010F               	movlb	15	; () banked
+   871  007D30  6F5B               	movwf	91,b	;volatile
+   872                           
+   873                           ;mainL1.c: 52:     ADCON1 = 0x00;
+   874  007D32  0E00               	movlw	0
+   875  007D34  6EC1               	movwf	193,c	;volatile
+   876                           
+   877                           ;mainL1.c: 53:     CM1CON0 = 0x00;
+   878  007D36  0E00               	movlw	0
+   879  007D38  6E98               	movwf	152,c	;volatile
+   880                           
+   881                           ;mainL1.c: 55:     TRISB = 0x00;
+   882  007D3A  0E00               	movlw	0
+   883  007D3C  6E93               	movwf	147,c	;volatile
+   884                           
+   885                           ;mainL1.c: 56:     LATB = 0x00;
+   886  007D3E  0E00               	movlw	0
+   887  007D40  6E8A               	movwf	138,c	;volatile
+   888                           
+   889                           ;mainL1.c: 58:     TRISC = 0x00;
+   890  007D42  0E00               	movlw	0
+   891  007D44  6E94               	movwf	148,c	;volatile
+   892                           
+   893                           ;mainL1.c: 59:     LATC = 0x00;
+   894  007D46  0E00               	movlw	0
+   895  007D48  6E8B               	movwf	139,c	;volatile
+   896  007D4A                     
+   897                           ; BSR set to: 15
+   898  007D4A  0012               	return		;funcret
+   899  007D4C                     __end_of_initChip:
+   900                           	callstack 0
+   901                           
+   902                           	psect	rparam
+   903  0000                     tosu	equ	0xFFF
+   904                           tosh	equ	0xFFE
+   905                           tosl	equ	0xFFD
+   906                           stkptr	equ	0xFFC
+   907                           pclatu	equ	0xFFB
+   908                           pclath	equ	0xFFA
+   909                           pcl	equ	0xFF9
+   910                           tblptru	equ	0xFF8
+   911                           tblptrh	equ	0xFF7
+   912                           tblptrl	equ	0xFF6
+   913                           tablat	equ	0xFF5
+   914                           prodh	equ	0xFF4
+   915                           prodl	equ	0xFF3
+   916                           indf0	equ	0xFEF
+   917                           postinc0	equ	0xFEE
+   918                           postdec0	equ	0xFED
+   919                           preinc0	equ	0xFEC
+   920                           plusw0	equ	0xFEB
+   921                           fsr0h	equ	0xFEA
+   922                           fsr0l	equ	0xFE9
+   923                           wreg	equ	0xFE8
+   924                           indf1	equ	0xFE7
+   925                           postinc1	equ	0xFE6
+   926                           postdec1	equ	0xFE5
+   927                           preinc1	equ	0xFE4
+   928                           plusw1	equ	0xFE3
+   929                           fsr1h	equ	0xFE2
+   930                           fsr1l	equ	0xFE1
+   931                           bsr	equ	0xFE0
+   932                           indf2	equ	0xFDF
+   933                           postinc2	equ	0xFDE
+   934                           postdec2	equ	0xFDD
+   935                           preinc2	equ	0xFDC
+   936                           plusw2	equ	0xFDB
+   937                           fsr2h	equ	0xFDA
+   938                           fsr2l	equ	0xFD9
+   939                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     0
+    Constant    512
+    Data        0
+    BSS         8
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     13      21
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                13    13      0     150
+                                              0 COMRAM    13    13      0
+                           _initChip
+ ---------------------------------------------------------------------------------
+ (1) _initChip                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _initChip
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             7FF      0       0      21        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK7           100      0       0      19        0.0%
+BANK7              100      0       0      20        0.0%
+BITBANK6           100      0       0      17        0.0%
+BANK6              100      0       0      18        0.0%
+BITBANK5           100      0       0      15        0.0%
+BANK5              100      0       0      16        0.0%
+BITBANK4           100      0       0      13        0.0%
+BANK4              100      0       0      14        0.0%
+BITBANK3           100      0       0      11        0.0%
+BANK3              100      0       0      12        0.0%
+BITBANK2           100      0       0       9        0.0%
+BANK2              100      0       0      10        0.0%
+BITBANK1           100      0       0       7        0.0%
+BANK1              100      0       0       8        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F      D      15       1       22.1%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      15       6        0.0%
+DATA                 0      0      15       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.32 build 20210201212658 
+Symbol Table                                                                                   Sat Oct 30 20:03:28 2021
+
+                     l31 7D4A                       l42 7DF2                       u11 7D52  
+                     u20 7DB0                       u21 7DAC                       u30 7DD4  
+                     u31 7DD0                       u40 7DEE                       u41 7DEA  
+                    l721 7D14                      l731 7D68                      l723 7D4C  
+                    l741 7D8E                      l733 7D6C                      l725 7D58  
+                    l751 7DBC                      l743 7D9E                      l735 7D8A  
+                    l727 7D60                      l753 7DD4                      l745 7DA0  
+                    l729 7D64                      l755 7DDC                      l747 7DB0  
+                    l757 7DDE                      l749 7DB8                      l759 7DEE  
+                    wreg 000FE8              main@average 0009                     _LATA 000F89  
+                   _LATB 000F8A                     _LATC 000F8B              main@counter 000A  
+                   _data 7DFF                     _main 7D4C                     indf2 000FDF  
+                   fsr2l 000FD9                     start 1000             ___param_bank 000000  
+           main@dataQueu 0001                    ?_main 0001                    _TRISA 000F92  
+                  _TRISB 000F93                    _TRISC 000F94                    main@i 000D  
+                  tablat 000FF5                    status 000FD8          __initialization 7CFE  
+           __end_of_data 7FFF             __end_of_main 7DFE                   ??_main 0001  
+          __activetblptr 000002                   _ADCON1 000FC1                   _ACTCON 000FB5  
+                 _ANSELA 000F5B            main@lastIndex 000C                   _OSCCON 000FD3  
+       __end_of_initChip 7D4C                   clear_0 7D04                   isa$std 000001  
+           __mediumconst 7DFE                   tblptrh 000FF7                   tblptrl 000FF6  
+                 tblptru 000FF8               __accesstop 0060  __end_of__initialization 7D0A  
+          ___rparam_used 000001           __pcstackCOMRAM 0001                  _CM1CON0 000F98  
+                _OSCCON2 000FD2                  _OSCTUNE 000F9B                ?_initChip 0001  
+                __Hparam 0000                  __Lparam 0000                  __pcinit 7CFE  
+                __ramtop 0800                  __ptext0 7D4C                  __ptext1 7D14  
+   end_of_initialization 7D0A               ??_initChip 0001            __Lmediumconst 7DFE  
+                postinc0 000FEE                  postinc2 000FDE      start_initialization 7CFE  
+            __pbssCOMRAM 000E        __size_of_initChip 0038            __pmediumconst 7DFE  
+              main@F4565 000E                 __Hrparam 0000                 __Lrparam 0000  
+               _initChip 7D14            __size_of_main 00B2                 isa$xinst 000000  
