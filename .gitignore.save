@@ -1,0 +1,14 @@
+# Ignore
+**/build
+**/debug
+**/dist
+**/nbproject
+
+# Allow
+*.*
+!**.gitattributes
+!**.gitignore
+!readme.md
+**.gitkeep
+!*.c
+!*.h

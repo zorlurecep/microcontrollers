@@ -57,6 +57,9 @@ void initChip(void) {
 
     TRISC = 0x00; //Define PORTC as output
     LATC = 0x00; //All output pins low
+
+    TRISCbits.RC0 = 1;
+    TRISAbits.RA4 = 1;
 }
 
 void main() {
@@ -64,32 +67,60 @@ void main() {
     int counter = 0;
     char lastIndex = 0;
     unsigned char average = 0;
+    char restartData, isRaw;
 
     initChip(); // Initialize all the PORTs and do some configurations
 
     while (1) // Endless loop : to make sure the program runs continuously
     {
-        dataQueu[lastIndex] = data[counter];
+        restartData = PORTCbits.RC0;
+        isRaw = PORTAbits.RA4;
 
-        for (char i = 0; i < 8; i++) {
-            average += dataQueu[i];
+        if (PORTCbits.RC0 == 0) {
+            for (char i = 0; i < 8; i++) {
+                dataQueu[i] = 0;
+            }
+            counter = 0;
+            lastIndex = 0;
         }
 
-        // because it is a power of 2 we can simply shift every bit by 1
-        average = average >> 3;
-        
-        
-        // create a stack like structure and get values there then calculate its average
 
-        // photo on the phone
+        if (PORTAbits.RA4 == 1) {
+            dataQueu[lastIndex] = data[counter];
 
-        // basically use bitwise operations, check for type conversion from lets say int to binary
+            for (char i = 0; i < 8; i++) {
+                // because it is a power of 2 we can simply shift every bit by 1
+                average += dataQueu[i] >> 3;
+            }
+        } else {
+            average = data[counter];
+        }
 
+
+        if (average < 16) {
+            LATB = 0b00000000;
+        } else if (average >= 16 && average < 48) {
+            LATB = 0b00000001;
+        } else if (average >= 48 && average < 80) {
+            LATB = 0b00000011;
+        } else if (average >= 80 && average < 112) {
+            LATB = 0b00000111;
+        } else if (average >= 112 && average < 144) {
+            LATB = 0b00001111;
+        } else if (average >= 144 && average < 176) {
+            LATB = 0b00011111;
+        } else if (average >= 176 && average < 208) {
+            LATB = 0b00111111;
+        } else if (average >= 208 && average < 240) {
+            LATB = 0b01111111;
+        } else if (average >= 240) {
+            LATB = 0b11111111;
+        }
 
 
         // This is a self implemented delay instead of __delay_ms()
-        //        for (unsigned long i = 0; i < 480000; i++) {
-        //        }
+        for (unsigned long i = 0; i < 100000; i++) {
+        }
 
         // This logic is required for continues data supply
         counter++;

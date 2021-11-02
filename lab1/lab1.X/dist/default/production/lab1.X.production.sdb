@@ -27,12 +27,78 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 /opt/microchip/xc8/v2.32/pic/sources/c99/common/Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"40 /home/roza/Documents/source/repos/microcontrollers/lab1.X/mainL1.c
+"40 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
 [v _initChip initChip `(v  1 e 1 0 ]
-"62
+"65
 [v _main main `(v  1 e 1 0 ]
 "232 /opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3931 ]
+[s S82 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"2837
+[s S189 . 1 `uc 1 AN0 1 0 :1:0 
+`uc 1 AN1 1 0 :1:1 
+`uc 1 AN2 1 0 :1:2 
+`uc 1 AN3 1 0 :1:3 
+`uc 1 T0CKI 1 0 :1:4 
+`uc 1 AN4 1 0 :1:5 
+`uc 1 OSC2 1 0 :1:6 
+]
+[s S197 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 VREFM 1 0 :1:2 
+`uc 1 VREFP 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 LVDIN 1 0 :1:5 
+]
+[s S203 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 HLVDIN 1 0 :1:5 
+]
+[s S206 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+`uc 1 . 1 0 :6:1 
+`uc 1 RJPU 1 0 :1:7 
+]
+[u S210 . 1 `S82 1 . 1 0 `S189 1 . 1 0 `S197 1 . 1 0 `S203 1 . 1 0 `S206 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES210  1 e 1 @3968 ]
+[s S113 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"3099
+[s S122 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S129 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S136 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S140 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S143 . 1 `S113 1 . 1 0 `S122 1 . 1 0 `S129 1 . 1 0 `S136 1 . 1 0 `S140 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES143  1 e 1 @3970 ]
 "3472
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3584
@@ -41,10 +107,41 @@
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "4155
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+[s S73 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"4187
+[u S91 . 1 `S73 1 . 1 0 `S82 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES91  1 e 1 @3986 ]
 "4377
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "4599
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S37 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"4629
+[s S46 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S53 . 1 `S37 1 . 1 0 `S46 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES53  1 e 1 @3988 ]
 "4933
 [v _CM1CON0 CM1CON0 `VEuc  1 e 1 @3992 ]
 "5241
@@ -57,25 +154,29 @@
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
 "11547
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"35 /home/roza/Documents/source/repos/microcontrollers/lab1.X/mainL1.c
+"35 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
 [v _data data `C[512]uc  1 e 512 0 ]
-"62
+"65
 [v _main main `(v  1 e 1 0 ]
 {
-"74
-[v main@i i `uc  1 a 1 12 ]
-"63
-[v main@dataQueu dataQueu `[8]uc  1 a 8 0 ]
-"64
-[v main@counter counter `i  1 a 2 9 ]
-"65
-[v main@lastIndex lastIndex `uc  1 a 1 11 ]
+"91
+[v main@i_293 i `uc  1 a 1 17 ]
+"80
+[v main@i i `uc  1 a 1 16 ]
+"122
+[v main@i_294 i `ul  1 a 4 9 ]
 "66
-[v main@average average `uc  1 a 1 8 ]
-"109
+[v main@dataQueu dataQueu `[8]uc  1 a 8 1 ]
+"67
+[v main@counter counter `i  1 a 2 14 ]
+"69
+[v main@average average `uc  1 a 1 18 ]
+"68
+[v main@lastIndex lastIndex `uc  1 a 1 13 ]
+"141
 } 0
 "40
 [v _initChip initChip `(v  1 e 1 0 ]
 {
-"60
+"63
 } 0
