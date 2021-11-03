@@ -1288,8 +1288,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainL1.c: 61:     TRISCbits.RC0 = 1;
 [e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
 "62
-[; ;mainL1.c: 62:     TRISAbits.RA0 = 1;
-[e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
+[; ;mainL1.c: 62:     TRISAbits.RA4 = 1;
+[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
 "63
 [; ;mainL1.c: 63: }
 [e :UE 608 ]
@@ -1347,11 +1347,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainL1.c: 76:         restartData = PORTCbits.RC0;
 [e = _restartData -> . . _PORTCbits 0 0 `uc ]
 "77
-[; ;mainL1.c: 77:         isRaw = PORTAbits.RA0;
-[e = _isRaw -> . . _PORTAbits 0 0 `uc ]
+[; ;mainL1.c: 77:         isRaw = PORTAbits.RA4;
+[e = _isRaw -> . . _PORTAbits 0 4 `uc ]
 "79
-[; ;mainL1.c: 79:         if (restartData == 1) {
-[e $ ! == -> _restartData `i -> 1 `i 613  ]
+[; ;mainL1.c: 79:         if (PORTCbits.RC0 == 0) {
+[e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 613  ]
 {
 "80
 [; ;mainL1.c: 80:             for (char i = 0; i < 8; i++) {
@@ -1383,8 +1383,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 613 ]
 "88
-[; ;mainL1.c: 88:         if (isRaw == 1) {
-[e $ ! == -> _isRaw `i -> 1 `i 617  ]
+[; ;mainL1.c: 88:         if (PORTAbits.RA4 == 1) {
+[e $ ! == -> . . _PORTAbits 0 4 `i -> 1 `i 617  ]
 {
 "89
 [; ;mainL1.c: 89:             dataQueu[lastIndex] = data[counter];
@@ -1421,159 +1421,64 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainL1.c: 97:         }
 }
 [e :U 621 ]
-"100
-[; ;mainL1.c: 100:         if (average < 16) {
-[e $ ! < -> _average `i -> 16 `i 622  ]
+"99
+[; ;mainL1.c: 99:         if (((average & 16) >> 4) == 1) {
+[e $ ! == >> & -> _average `i -> 16 `i -> 4 `i -> 1 `i 622  ]
 {
+"100
+[; ;mainL1.c: 100:             LATB = (average >> 5) + 1;
+[e = _LATB -> + >> -> _average `i -> 5 `i -> 1 `i `uc ]
 "101
-[; ;mainL1.c: 101:             LATB = 0b00000000;
-[e = _LATB -> -> 0 `i `uc ]
-"102
-[; ;mainL1.c: 102:         } else if (average >= 16 && average < 48) {
+[; ;mainL1.c: 101:         } else {
 }
 [e $U 623  ]
 [e :U 622 ]
-[e $ ! && >= -> _average `i -> 16 `i < -> _average `i -> 48 `i 624  ]
 {
+"102
+[; ;mainL1.c: 102:             LATB = average >> 5;
+[e = _LATB -> >> -> _average `i -> 5 `i `uc ]
 "103
-[; ;mainL1.c: 103:             LATB = 0b00000001;
-[e = _LATB -> -> 1 `i `uc ]
-"104
-[; ;mainL1.c: 104:         } else if (average >= 48 && average < 80) {
+[; ;mainL1.c: 103:         }
 }
-[e $U 625  ]
-[e :U 624 ]
-[e $ ! && >= -> _average `i -> 48 `i < -> _average `i -> 80 `i 626  ]
-{
-"105
-[; ;mainL1.c: 105:             LATB = 0b00000011;
-[e = _LATB -> -> 3 `i `uc ]
-"106
-[; ;mainL1.c: 106:         } else if (average >= 80 && average < 112) {
-}
-[e $U 627  ]
-[e :U 626 ]
-[e $ ! && >= -> _average `i -> 80 `i < -> _average `i -> 112 `i 628  ]
-{
-"107
-[; ;mainL1.c: 107:             LATB = 0b00000111;
-[e = _LATB -> -> 7 `i `uc ]
-"108
-[; ;mainL1.c: 108:         } else if (average >= 112 && average < 144) {
-}
-[e $U 629  ]
-[e :U 628 ]
-[e $ ! && >= -> _average `i -> 112 `i < -> _average `i -> 144 `i 630  ]
-{
-"109
-[; ;mainL1.c: 109:             LATB = 0b00001111;
-[e = _LATB -> -> 15 `i `uc ]
-"110
-[; ;mainL1.c: 110:         } else if (average >= 144 && average < 176) {
-}
-[e $U 631  ]
-[e :U 630 ]
-[e $ ! && >= -> _average `i -> 144 `i < -> _average `i -> 176 `i 632  ]
-{
-"111
-[; ;mainL1.c: 111:             LATB = 0b00011111;
-[e = _LATB -> -> 31 `i `uc ]
-"112
-[; ;mainL1.c: 112:         } else if (average >= 176 && average < 208) {
-}
-[e $U 633  ]
-[e :U 632 ]
-[e $ ! && >= -> _average `i -> 176 `i < -> _average `i -> 208 `i 634  ]
-{
-"113
-[; ;mainL1.c: 113:             LATB = 0b00111111;
-[e = _LATB -> -> 63 `i `uc ]
-"114
-[; ;mainL1.c: 114:         } else if (average >= 208 && average < 240) {
-}
-[e $U 635  ]
-[e :U 634 ]
-[e $ ! && >= -> _average `i -> 208 `i < -> _average `i -> 240 `i 636  ]
-{
-"115
-[; ;mainL1.c: 115:             LATB = 0b01111111;
-[e = _LATB -> -> 127 `i `uc ]
-"116
-[; ;mainL1.c: 116:         } else if (average >= 240) {
-}
-[e $U 637  ]
-[e :U 636 ]
-[e $ ! >= -> _average `i -> 240 `i 638  ]
-{
-"117
-[; ;mainL1.c: 117:             LATB = 0b11111111;
-[e = _LATB -> -> 255 `i `uc ]
-"118
-[; ;mainL1.c: 118:         }
-}
-[e :U 638 ]
-[e :U 637 ]
-[e :U 635 ]
-[e :U 633 ]
-[e :U 631 ]
-[e :U 629 ]
-[e :U 627 ]
-[e :U 625 ]
 [e :U 623 ]
-"122
-[; ;mainL1.c: 122:         for (unsigned long i = 0; i < 240000; i++) {
-{
-[v _i `ul ~T0 @X0 1 a ]
-[e = _i -> -> -> 0 `i `l `ul ]
-[e $ < _i -> -> 240000 `l `ul 639  ]
-[e $U 640  ]
-[e :U 639 ]
-{
-"123
-[; ;mainL1.c: 123:         }
-}
-[e ++ _i -> -> -> 1 `i `l `ul ]
-[e $ < _i -> -> 240000 `l `ul 639  ]
-[e :U 640 ]
-}
-"126
-[; ;mainL1.c: 126:         counter++;
+"142
+[; ;mainL1.c: 142:         counter++;
 [e ++ _counter -> 1 `i ]
-"127
-[; ;mainL1.c: 127:         if (counter >= 512) {
-[e $ ! >= _counter -> 512 `i 642  ]
+"143
+[; ;mainL1.c: 143:         if (counter >= 512) {
+[e $ ! >= _counter -> 512 `i 624  ]
 {
-"128
-[; ;mainL1.c: 128:             counter = 0;
+"144
+[; ;mainL1.c: 144:             counter = 0;
 [e = _counter -> 0 `i ]
-"129
-[; ;mainL1.c: 129:         }
+"145
+[; ;mainL1.c: 145:         }
 }
-[e :U 642 ]
-"132
-[; ;mainL1.c: 132:         lastIndex++;
+[e :U 624 ]
+"148
+[; ;mainL1.c: 148:         lastIndex++;
 [e ++ _lastIndex -> -> 1 `i `uc ]
-"133
-[; ;mainL1.c: 133:         if (lastIndex >= 8) {
-[e $ ! >= -> _lastIndex `i -> 8 `i 643  ]
+"149
+[; ;mainL1.c: 149:         if (lastIndex >= 8) {
+[e $ ! >= -> _lastIndex `i -> 8 `i 625  ]
 {
-"134
-[; ;mainL1.c: 134:             lastIndex = 0;
+"150
+[; ;mainL1.c: 150:             lastIndex = 0;
 [e = _lastIndex -> -> 0 `i `uc ]
-"135
-[; ;mainL1.c: 135:         }
+"151
+[; ;mainL1.c: 151:         }
 }
-[e :U 643 ]
-"138
-[; ;mainL1.c: 138:         average = 0;
+[e :U 625 ]
+"154
+[; ;mainL1.c: 154:         average = 0;
 [e = _average -> -> 0 `i `uc ]
-"140
-[; ;mainL1.c: 140:     }
+"156
+[; ;mainL1.c: 156:     }
 }
 [e :U 610 ]
 [e $U 611  ]
 [e :U 612 ]
-"141
-[; ;mainL1.c: 141: }
+"157
+[; ;mainL1.c: 157: }
 [e :UE 609 ]
 }

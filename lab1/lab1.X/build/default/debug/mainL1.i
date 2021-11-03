@@ -7610,7 +7610,7 @@ void initChip(void) {
     LATC = 0x00;
 
     TRISCbits.RC0 = 1;
-    TRISAbits.RA0 = 1;
+    TRISAbits.RA4 = 1;
 }
 
 void main() {
@@ -7625,9 +7625,9 @@ void main() {
     while (1)
     {
         restartData = PORTCbits.RC0;
-        isRaw = PORTAbits.RA0;
+        isRaw = PORTAbits.RA4;
 
-        if (restartData == 1) {
+        if (PORTCbits.RC0 == 0) {
             for (char i = 0; i < 8; i++) {
                 dataQueu[i] = 0;
             }
@@ -7636,7 +7636,7 @@ void main() {
         }
 
 
-        if (isRaw == 1) {
+        if (PORTAbits.RA4 == 1) {
             dataQueu[lastIndex] = data[counter];
 
             for (char i = 0; i < 8; i++) {
@@ -7647,33 +7647,12 @@ void main() {
             average = data[counter];
         }
 
-
-        if (average < 16) {
-            LATB = 0b00000000;
-        } else if (average >= 16 && average < 48) {
-            LATB = 0b00000001;
-        } else if (average >= 48 && average < 80) {
-            LATB = 0b00000011;
-        } else if (average >= 80 && average < 112) {
-            LATB = 0b00000111;
-        } else if (average >= 112 && average < 144) {
-            LATB = 0b00001111;
-        } else if (average >= 144 && average < 176) {
-            LATB = 0b00011111;
-        } else if (average >= 176 && average < 208) {
-            LATB = 0b00111111;
-        } else if (average >= 208 && average < 240) {
-            LATB = 0b01111111;
-        } else if (average >= 240) {
-            LATB = 0b11111111;
+        if (((average & 16) >> 4) == 1) {
+            LATB = (average >> 5) + 1;
+        } else {
+            LATB = average >> 5;
         }
-
-
-
-        for (unsigned long i = 0; i < 240000; i++) {
-        }
-
-
+# 142 "mainL1.c"
         counter++;
         if (counter >= 512) {
             counter = 0;

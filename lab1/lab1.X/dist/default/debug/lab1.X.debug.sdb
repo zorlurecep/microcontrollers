@@ -160,23 +160,18 @@
 [v _main main `(v  1 e 1 0 ]
 {
 "91
-[v main@i_293 i `uc  1 a 1 19 ]
+[v main@i_293 i `uc  1 a 1 14 ]
 "80
-[v main@i i `uc  1 a 1 18 ]
-"122
-[v main@i_294 i `ul  1 a 4 11 ]
+[v main@i i `uc  1 a 1 13 ]
 "66
-[v main@dataQueu dataQueu `[8]uc  1 a 8 1 ]
+[v main@dataQueu dataQueu `[8]uc  1 a 8 2 ]
 "67
-[v main@counter counter `i  1 a 2 16 ]
+[v main@counter counter `i  1 a 2 11 ]
 "69
-[v main@average average `uc  1 a 1 20 ]
+[v main@average average `uc  1 a 1 15 ]
 "68
-[v main@lastIndex lastIndex `uc  1 a 1 15 ]
-"70
-[v main@isRaw isRaw `uc  1 a 1 10 ]
-[v main@restartData restartData `uc  1 a 1 9 ]
-"141
+[v main@lastIndex lastIndex `uc  1 a 1 10 ]
+"157
 } 0
 "40
 [v _initChip initChip `(v  1 e 1 0 ]

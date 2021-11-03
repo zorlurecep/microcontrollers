@@ -9,10 +9,7 @@
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Author                       Date                Version             Comment
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Eva Andries	                20/08/2018          0.1                 Initial release
- * Tim Stas						15/07/2019			1.0					PIC18F25K50
- * G.S.							6/10/2020			1.1					CLK
- * G.S.                         19/10/2021          1.1a                init LAT instead of PORT
+ * Recep Omer Zorlu
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * TODO                         Date                Finished
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -58,6 +55,7 @@ void initChip(void) {
     TRISC = 0x00; //Define PORTC as output
     LATC = 0x00; //All output pins low
 
+    // Defining these two pins to read from them. These are the button pins
     TRISCbits.RC0 = 1;
     TRISAbits.RA4 = 1;
 }
@@ -67,15 +65,11 @@ void main() {
     int counter = 0;
     char lastIndex = 0;
     unsigned char average = 0;
-    char restartData, isRaw;
 
     initChip(); // Initialize all the PORTs and do some configurations
 
     while (1) // Endless loop : to make sure the program runs continuously
     {
-        restartData = PORTCbits.RC0;
-        isRaw = PORTAbits.RA4;
-
         if (PORTCbits.RC0 == 0) {
             for (char i = 0; i < 8; i++) {
                 dataQueu[i] = 0;
@@ -87,36 +81,21 @@ void main() {
 
         if (PORTAbits.RA4 == 1) {
             dataQueu[lastIndex] = data[counter];
-
             for (char i = 0; i < 8; i++) {
-                // because it is a power of 2 we can simply shift every bit by 1
+                // because 8 is a power of 2 we can simply shift every bit by 3 to divide it to 8
                 average += dataQueu[i] >> 3;
             }
         } else {
             average = data[counter];
         }
 
-
-        if (average < 16) {
-            LATB = 0b00000000;
-        } else if (average >= 16 && average < 48) {
-            LATB = 0b00000001;
-        } else if (average >= 48 && average < 80) {
-            LATB = 0b00000011;
-        } else if (average >= 80 && average < 112) {
-            LATB = 0b00000111;
-        } else if (average >= 112 && average < 144) {
-            LATB = 0b00001111;
-        } else if (average >= 144 && average < 176) {
-            LATB = 0b00011111;
-        } else if (average >= 176 && average < 208) {
-            LATB = 0b00111111;
-        } else if (average >= 208 && average < 240) {
-            LATB = 0b01111111;
-        } else if (average >= 240) {
-            LATB = 0b11111111;
+        // First three bits are basically the led numbers we require. Only tricky part is that values that are power of 2 is a problem
+        // they mess up the led count to fix that below if statement used. To indicate we are in between power of 2 and our range I use the below logic.
+        if (((average & 16) >> 4) == 1) {
+            LATB = (average >> 5) + 1;
+        } else {
+            LATB = average >> 5;
         }
-
 
         // This is a self implemented delay instead of __delay_ms()
         for (unsigned long i = 0; i < 100000; i++) {

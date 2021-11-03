@@ -27,9 +27,9 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 /opt/microchip/xc8/v2.32/pic/sources/c99/common/Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"40 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
+"37 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
 [v _initChip initChip `(v  1 e 1 0 ]
-"65
+"63
 [v _main main `(v  1 e 1 0 ]
 "232 /opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3931 ]
@@ -154,29 +154,29 @@
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
 "11547
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"35 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
+"32 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
 [v _data data `C[512]uc  1 e 512 0 ]
-"65
+"63
 [v _main main `(v  1 e 1 0 ]
 {
-"91
-[v main@i_293 i `uc  1 a 1 17 ]
-"80
-[v main@i i `uc  1 a 1 16 ]
-"122
-[v main@i_294 i `ul  1 a 4 9 ]
-"66
-[v main@dataQueu dataQueu `[8]uc  1 a 8 1 ]
+"84
+[v main@i_291 i `uc  1 a 1 18 ]
+"74
+[v main@i i `uc  1 a 1 17 ]
+"101
+[v main@i_292 i `ul  1 a 4 10 ]
+"64
+[v main@dataQueu dataQueu `[8]uc  1 a 8 2 ]
+"65
+[v main@counter counter `i  1 a 2 15 ]
 "67
-[v main@counter counter `i  1 a 2 14 ]
-"69
-[v main@average average `uc  1 a 1 18 ]
-"68
-[v main@lastIndex lastIndex `uc  1 a 1 13 ]
-"141
+[v main@average average `uc  1 a 1 19 ]
+"66
+[v main@lastIndex lastIndex `uc  1 a 1 14 ]
+"120
 } 0
-"40
+"37
 [v _initChip initChip `(v  1 e 1 0 ]
 {
-"63
+"61
 } 0

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v2.32/pic/dat/en_msgs.txt -cn \
   -h+dist/default/production/lab1.X.production.sym \
   --cmf=dist/default/production/lab1.X.production.cmf -z -Q18F25K50 \
-  -o/tmp/xcXIPlJdi --defsym=__MPLAB_BUILD=1 \
+  -o/tmp/xcXAIEMGa --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/lab1.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=060h-07FFh -pstack=STACK -ACODE=01000h-07FFFh \
   -ACONST=01000h-07FFFh -ASMALLCONST=01000h-010FFhx112 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXcBjiLC.o dist/default/production/lab1.X.production.o 
+  /tmp/xcXPCEOdC.o dist/default/production/lab1.X.production.o 
 
 Object code version is 3.11
 
@@ -32,24 +32,24 @@ Machine type is 18F25K50
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXcBjiLC.o
+/tmp/xcXPCEOdC.o
                 init                               1000     1000        4      800       0
 dist/default/production/lab1.X.production.o
                 mediumconst                        7DFE     7DFE      202     3EFF       0
-                text1                              7B22     7B22       3C     3D91       0
-                text0                              7B5E     7B5E      2A0     3DAF       0
-                cstackCOMRAM                          1        1       13        1       1
-                bssCOMRAM                            14       14        8        1       1
-                cinit                              7B0C     7B0C       16     3D86       0
+                text1                              7C32     7C32       3C     3E19       0
+                text0                              7C6E     7C6E      190     3E37       0
+                cstackCOMRAM                          1        1       14        1       1
+                bssCOMRAM                            15       15        8        1       1
+                cinit                              7C1C     7C1C       16     3E0E       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 init                               1000     1000        4         0
-                text1                              7B22     7B22       3C         0
-                text0                              7B5E     7B5E      2A0         0
-                cinit                              7B0C     7B0C       16         0
+                text1                              7C32     7C32       3C         0
+                text0                              7C6E     7C6E      190         0
+                cinit                              7C1C     7C1C       16         0
 
         CLASS   CONST          
 
@@ -59,8 +59,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 mediumconst                        7DFE     7DFE      202         0
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1       13         1
-                bssCOMRAM                            14       14        8         1
+                cstackCOMRAM                          1        1       14         1
+                bssCOMRAM                            15       15        8         1
 
         CLASS   ABS1           
 
@@ -98,10 +98,10 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                cstackCOMRAM                   000001  00001B  00001C         1       1  COMRAM  
-                text0                          007B5E  0002A0  007DFE      3DAF       0  CODE    
-                cinit                          007B0C  000016  007B22      3D86       0  CODE    
-                text1                          007B22  00003C  007B5E      3D91       0  CODE    
+                cstackCOMRAM                   000001  00001C  00001D         1       1  COMRAM  
+                text0                          007C6E  000190  007DFE      3E37       0  CODE    
+                cinit                          007C1C  000016  007C32      3E0E       0  CODE    
+                text1                          007C32  00003C  007C6E      3E19       0  CODE    
                 mediumconst                    007DFE  000202  008000      3EFF       0  MEDIUMCO
                 reset_vec                      001000  000004  001004       800       0  CODE    
 
@@ -117,18 +117,18 @@ UNUSED ADDRESS RANGES
         BANK5            0500-05FF            100
         BANK6            0600-06FF            100
         BANK7            0700-07FF            100
-        BIGRAM           001C-07FF            7E4
-        CODE             1004-7B0B           6B08
-        COMRAM           001C-005F             44
+        BIGRAM           001D-07FF            7E3
+        CODE             1004-7C1B           6C18
+        COMRAM           001D-005F             43
         CONFIG           300000-30000D              E
-        CONST            1004-7B0B           6B08
+        CONST            1004-7C1B           6C18
         EEDATA           F00000-F000FF            100
         FARRAM           0000-0000              1
         IDLOC            200000-200007              8
-        MEDIUMCONST      1004-7B0B           6B08
+        MEDIUMCONST      1004-7C1B           6C18
         RAM              0060-07FF            100
         SFR              0F53-0FFF              D
-        SMALLCONST       1004-7B0B            100
+        SMALLCONST       1004-7C1B            100
         STACK            0060-07FF            7A0
 
                                   Symbol Table
@@ -203,7 +203,7 @@ __Hrparam                rparam       0000
 __Hsfr                   sfr          0000
 __Hsmallconst            smallconst   0000
 __Hspace_0               (abs)        8000
-__Hspace_1               (abs)        001C
+__Hspace_1               (abs)        001D
 __Hspace_2               (abs)        0000
 __Hspace_4               (abs)        0000
 __Hstack                 stack        0000
@@ -275,7 +275,7 @@ __Ltext                  text         0000
 __Ltext0                 text0        0000
 __Ltext1                 text1        0000
 __S0                     (abs)        8000
-__S1                     (abs)        001C
+__S1                     (abs)        001D
 __S2                     (abs)        0000
 __S4                     (abs)        0000
 __S5                     (abs)        0000
@@ -286,56 +286,56 @@ ___rparam_used           (abs)        0001
 ___sp                    stack        0000
 __accesstop              (abs)        0060
 __activetblptr           (abs)        0002
-__end_of__initialization cinit        7B18
+__end_of__initialization cinit        7C28
 __end_of_data            mediumconst  7FFF
-__end_of_initChip        text1        7B5E
+__end_of_initChip        text1        7C6E
 __end_of_main            text0        7DFE
-__initialization         cinit        7B0C
+__initialization         cinit        7C1C
 __mediumconst            mediumconst  7DFE
-__pbssCOMRAM             bssCOMRAM    0014
-__pcinit                 cinit        7B0C
+__pbssCOMRAM             bssCOMRAM    0015
+__pcinit                 cinit        7C1C
 __pcstackCOMRAM          cstackCOMRAM 0001
 __pmediumconst           mediumconst  7DFE
-__ptext0                 text0        7B5E
-__ptext1                 text1        7B22
+__ptext0                 text0        7C6E
+__ptext1                 text1        7C32
 __ramtop                 ramtop       0800
 __size_of_initChip       (abs)        0000
 __size_of_main           (abs)        0000
 __smallconst             smallconst   0000
 _data                    mediumconst  7DFF
-_initChip                text1        7B22
-_main                    text0        7B5E
-end_of_initialization    cinit        7B18
+_initChip                text1        7C32
+_main                    text0        7C6E
+end_of_initialization    cinit        7C28
 intlevel0                text         0000
 intlevel1                text         0000
 intlevel2                text         0000
 intlevel3                text         0000
 isa$std                  (abs)        0001
 isa$xinst                (abs)        0000
-main@average             cstackCOMRAM 0013
-main@counter             cstackCOMRAM 000F
-main@dataQueu            cstackCOMRAM 0002
-main@i                   cstackCOMRAM 0011
-main@i_293               cstackCOMRAM 0012
-main@i_294               cstackCOMRAM 000A
-main@lastIndex           cstackCOMRAM 000E
+main@average             cstackCOMRAM 0014
+main@counter             cstackCOMRAM 0010
+main@dataQueu            cstackCOMRAM 0003
+main@i                   cstackCOMRAM 0012
+main@i_291               cstackCOMRAM 0013
+main@i_292               cstackCOMRAM 000B
+main@lastIndex           cstackCOMRAM 000F
 stackhi                  (abs)        07FF
 stacklo                  (abs)        0060
 start                    init         1000
-start_initialization     cinit        7B0C
+start_initialization     cinit        7C1C
 
 
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 mainL1.c
-		_main          		CODE           	7B5E	0000	672
-		_initChip      		CODE           	7B22	0000	60
+		_main          		CODE           	7C6E	0000	400
+		_initChip      		CODE           	7C32	0000	60
 
-mainL1.c estimated size: 732
+mainL1.c estimated size: 460
 
 shared
-		__initialization		CODE           	7B0C	0000	12
+		__initialization		CODE           	7C1C	0000	12
 		_data          		MEDIUMCONST    	7DFF	0000	512
 
 shared estimated size: 524

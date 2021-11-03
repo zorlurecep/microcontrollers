@@ -7,7 +7,7 @@
 # 1 "/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "mainL1.c" 2
-# 25 "mainL1.c"
+# 22 "mainL1.c"
 # 1 "/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -7572,7 +7572,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/xc.h" 2 3
-# 25 "mainL1.c" 2
+# 22 "mainL1.c" 2
 
 
 
@@ -7609,6 +7609,7 @@ void initChip(void) {
     TRISC = 0x00;
     LATC = 0x00;
 
+
     TRISCbits.RC0 = 1;
     TRISAbits.RA4 = 1;
 }
@@ -7618,15 +7619,11 @@ void main() {
     int counter = 0;
     char lastIndex = 0;
     unsigned char average = 0;
-    char restartData, isRaw;
 
     initChip();
 
     while (1)
     {
-        restartData = PORTCbits.RC0;
-        isRaw = PORTAbits.RA4;
-
         if (PORTCbits.RC0 == 0) {
             for (char i = 0; i < 8; i++) {
                 dataQueu[i] = 0;
@@ -7638,7 +7635,6 @@ void main() {
 
         if (PORTAbits.RA4 == 1) {
             dataQueu[lastIndex] = data[counter];
-
             for (char i = 0; i < 8; i++) {
 
                 average += dataQueu[i] >> 3;
@@ -7648,26 +7644,12 @@ void main() {
         }
 
 
-        if (average < 16) {
-            LATB = 0b00000000;
-        } else if (average >= 16 && average < 48) {
-            LATB = 0b00000001;
-        } else if (average >= 48 && average < 80) {
-            LATB = 0b00000011;
-        } else if (average >= 80 && average < 112) {
-            LATB = 0b00000111;
-        } else if (average >= 112 && average < 144) {
-            LATB = 0b00001111;
-        } else if (average >= 144 && average < 176) {
-            LATB = 0b00011111;
-        } else if (average >= 176 && average < 208) {
-            LATB = 0b00111111;
-        } else if (average >= 208 && average < 240) {
-            LATB = 0b01111111;
-        } else if (average >= 240) {
-            LATB = 0b11111111;
-        }
 
+        if (((average & 16) >> 4) == 1) {
+            LATB = (average >> 5) + 1;
+        } else {
+            LATB = average >> 5;
+        }
 
 
         for (unsigned long i = 0; i < 100000; i++) {
