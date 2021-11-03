@@ -91,14 +91,30 @@ void main() {
 
         // First three bits are basically the led numbers we require. Only tricky part is that values that are power of 2 is a problem
         // they mess up the led count to fix that below if statement used. To indicate we are in between power of 2 and our range I use the below logic.
+        char bitsToLightUpCount = 0;
+        char latValues[] = {0, 0, 0, 0, 0, 0, 0, 0};
         if (((average & 16) >> 4) == 1) {
-            LATB = (average >> 5) + 1;
+            bitsToLightUpCount = (average >> 5) + 1;
         } else {
-            LATB = average >> 5;
+            bitsToLightUpCount = average >> 5;
         }
 
+        while (bitsToLightUpCount - 1 >= 0) {
+            latValues[bitsToLightUpCount - 1] = 1;
+            bitsToLightUpCount--;
+        }
+
+        LATBbits.LATB0 = latValues[0];
+        LATBbits.LATB1 = latValues[1];
+        LATBbits.LATB2 = latValues[2];
+        LATBbits.LATB3 = latValues[3];
+        LATBbits.LATB4 = latValues[4];
+        LATBbits.LATB5 = latValues[5];
+        LATBbits.LATB6 = latValues[6];
+        LATBbits.LATB7 = latValues[7];
+
         // This is a self implemented delay instead of __delay_ms()
-        for (unsigned long i = 0; i < 100000; i++) {
+        for (unsigned long i = 0; i < 240000; i++) {
         }
 
         // This logic is required for continues data supply

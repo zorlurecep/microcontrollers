@@ -123,6 +123,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2837
 [; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 2837: extern volatile PORTAbits_t PORTAbits __attribute__((address(0xF80)));
 [v _PORTAbits `VS124 ~T0 @X0 0 e@3968 ]
+"3590
+[; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 3590:     struct {
+[s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S157 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"3600
+[; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 3600:     struct {
+[s S158 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S158 . LB0 LB1 LB2 LB3 LB4 LB5 LB6 LB7 ]
+"3589
+[; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 3589: typedef union {
+[u S156 `S157 1 `S158 1 ]
+[n S156 . . . ]
+"3611
+[; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 3611: extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
+[v _LATBbits `VS156 ~T0 @X0 0 e@3978 ]
 "54 /opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h
 [; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 54: __asm("SRCON1 equ 0F57h");
 [; <" SRCON1 equ 0F57h ;# ">
@@ -720,8 +735,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12842
 [; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 12842: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"35 mainL1.c
-[; ;mainL1.c: 35: const unsigned char data[] = {8, 0, 21, 36, 0, 6, 56, 0, 0, 73, 48, 0, 23, 21, 53, 13, 8, 0, 36, 64, 43, 77, 78, 16, 83, 0, 0, 36, 25, 0, 77, 63, 0, 29, 0, 75, 0, 36, 0, 19, 10, 101, 0, 0, 102, 62, 16, 96, 104, 94, 48, 25, 71, 105, 22, 86, 1, 28, 0, 28, 6, 7, 45, 41, 36, 4, 42, 14, 5, 108, 38, 114, 50, 93, 119, 79, 81, 140, 56, 41, 27, 41, 53, 122, 103, 54, 65, 81, 103, 97, 80, 121, 31, 102, 116, 132, 81, 158, 64, 60, 129, 145, 65, 150, 44, 144, 109, 82, 166, 102, 173, 103, 131, 116, 150, 153, 175, 172, 91, 99, 157, 74, 180, 139, 150, 87, 143, 175, 84, 185, 123, 122, 165, 115, 180, 154, 147, 198, 191, 136, 134, 158, 118, 99, 109, 164, 203, 165, 177, 138, 133, 97, 110, 133, 217, 194, 194, 122, 147, 202, 207, 161, 136, 198, 168, 113, 160, 107, 119, 217, 158, 182, 133, 182, 115, 235, 215, 239, 151, 199, 240, 237, 226, 197, 224, 185, 222, 135, 204, 159, 190, 133, 202, 255, 157, 182, 145, 245, 236, 177, 157, 251, 214, 255, 173, 145, 175, 195, 147, 154, 209, 255, 193, 179, 243, 174, 178, 240, 175, 183, 255, 181, 186, 169, 177, 167, 252, 255, 247, 220, 188, 241, 255, 233, 255, 220, 255, 255, 229, 222, 255, 255, 251, 199, 255, 255, 255, 255, 255, 213, 216, 236, 241, 189, 255, 255, 215, 215, 239, 255, 194, 189, 206, 255, 251, 214, 255, 255, 255, 209, 192, 210, 255, 255, 255, 182, 232, 253, 205, 190, 255, 200, 237, 184, 255, 255, 230, 255, 224, 196, 209, 215, 242, 231, 182, 237, 158, 230, 241, 222, 182, 243, 162, 196, 225, 165, 225, 161, 230, 185, 186, 255, 200, 207, 243, 211, 203, 236, 204, 201, 211, 175, 145, 137, 248, 133, 142, 189, 208, 226, 148, 210, 162, 188, 175, 176, 125, 195, 185, 153, 190, 134, 141, 145, 174, 137, 213, 108, 223, 211, 223, 182, 209, 155, 104, 103, 211, 133, 160, 147, 136, 152, 145, 197, 152, 121, 84, 165, 100, 133, 84, 160, 183, 166, 96, 105, 156, 184, 191, 137, 79, 76, 149, 109, 105, 83, 164, 106, 160, 61, 147, 164, 70, 126, 71, 137, 65, 139, 99, 108, 126, 151, 53, 137, 171, 62, 47, 116, 118, 165, 85, 90, 114, 142, 105, 123, 154, 59, 118, 74, 148, 55, 133, 146, 145, 78, 144, 125, 100, 105, 56, 52, 42, 126, 129, 134, 132, 13, 112, 19, 18, 32, 44, 107, 8, 64, 24, 4, 39, 0, 52, 106, 40, 32, 105, 15, 86, 3, 117, 51, 0, 73, 25, 81, 74, 99, 0, 109, 62, 84, 19, 89, 52, 94, 90, 91, 45, 55, 69, 79, 78, 79, 0, 3, 0, 0, 57, 0, 59, 36, 32, 0, 5, 0, 0, 58, 0, 26, 67, 0, 0, 36, 0, 61, 0, 51, 0, 5, 0, 0, 3, 26};
+"32 mainL1.c
+[; ;mainL1.c: 32: const unsigned char data[] = {8, 0, 21, 36, 0, 6, 56, 0, 0, 73, 48, 0, 23, 21, 53, 13, 8, 0, 36, 64, 43, 77, 78, 16, 83, 0, 0, 36, 25, 0, 77, 63, 0, 29, 0, 75, 0, 36, 0, 19, 10, 101, 0, 0, 102, 62, 16, 96, 104, 94, 48, 25, 71, 105, 22, 86, 1, 28, 0, 28, 6, 7, 45, 41, 36, 4, 42, 14, 5, 108, 38, 114, 50, 93, 119, 79, 81, 140, 56, 41, 27, 41, 53, 122, 103, 54, 65, 81, 103, 97, 80, 121, 31, 102, 116, 132, 81, 158, 64, 60, 129, 145, 65, 150, 44, 144, 109, 82, 166, 102, 173, 103, 131, 116, 150, 153, 175, 172, 91, 99, 157, 74, 180, 139, 150, 87, 143, 175, 84, 185, 123, 122, 165, 115, 180, 154, 147, 198, 191, 136, 134, 158, 118, 99, 109, 164, 203, 165, 177, 138, 133, 97, 110, 133, 217, 194, 194, 122, 147, 202, 207, 161, 136, 198, 168, 113, 160, 107, 119, 217, 158, 182, 133, 182, 115, 235, 215, 239, 151, 199, 240, 237, 226, 197, 224, 185, 222, 135, 204, 159, 190, 133, 202, 255, 157, 182, 145, 245, 236, 177, 157, 251, 214, 255, 173, 145, 175, 195, 147, 154, 209, 255, 193, 179, 243, 174, 178, 240, 175, 183, 255, 181, 186, 169, 177, 167, 252, 255, 247, 220, 188, 241, 255, 233, 255, 220, 255, 255, 229, 222, 255, 255, 251, 199, 255, 255, 255, 255, 255, 213, 216, 236, 241, 189, 255, 255, 215, 215, 239, 255, 194, 189, 206, 255, 251, 214, 255, 255, 255, 209, 192, 210, 255, 255, 255, 182, 232, 253, 205, 190, 255, 200, 237, 184, 255, 255, 230, 255, 224, 196, 209, 215, 242, 231, 182, 237, 158, 230, 241, 222, 182, 243, 162, 196, 225, 165, 225, 161, 230, 185, 186, 255, 200, 207, 243, 211, 203, 236, 204, 201, 211, 175, 145, 137, 248, 133, 142, 189, 208, 226, 148, 210, 162, 188, 175, 176, 125, 195, 185, 153, 190, 134, 141, 145, 174, 137, 213, 108, 223, 211, 223, 182, 209, 155, 104, 103, 211, 133, 160, 147, 136, 152, 145, 197, 152, 121, 84, 165, 100, 133, 84, 160, 183, 166, 96, 105, 156, 184, 191, 137, 79, 76, 149, 109, 105, 83, 164, 106, 160, 61, 147, 164, 70, 126, 71, 137, 65, 139, 99, 108, 126, 151, 53, 137, 171, 62, 47, 116, 118, 165, 85, 90, 114, 142, 105, 123, 154, 59, 118, 74, 148, 55, 133, 146, 145, 78, 144, 125, 100, 105, 56, 52, 42, 126, 129, 134, 132, 13, 112, 19, 18, 32, 44, 107, 8, 64, 24, 4, 39, 0, 52, 106, 40, 32, 105, 15, 86, 3, 117, 51, 0, 73, 25, 81, 74, 99, 0, 109, 62, 84, 19, 89, 52, 94, 90, 91, 45, 55, 69, 79, 78, 79, 0, 3, 0, 0, 57, 0, 59, 36, 32, 0, 5, 0, 0, 58, 0, 26, 67, 0, 0, 36, 0, 61, 0, 51, 0, 5, 0, 0, 3, 26};
 [v _data `Cuc ~T0 @X0 -> 512 `i e ]
 [i _data
 :U ..
@@ -1239,64 +1254,64 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 26 `i `uc
 ..
 ]
-"40
-[; ;mainL1.c: 40: void initChip(void) {
+"37
+[; ;mainL1.c: 37: void initChip(void) {
 [v _initChip `(v ~T0 @X0 1 ef ]
 {
 [e :U _initChip ]
 [f ]
-"42
-[; ;mainL1.c: 42:     OSCTUNE = 0x80;
+"39
+[; ;mainL1.c: 39:     OSCTUNE = 0x80;
 [e = _OSCTUNE -> -> 128 `i `uc ]
-"43
-[; ;mainL1.c: 43:     OSCCON = 0x70;
+"40
+[; ;mainL1.c: 40:     OSCCON = 0x70;
 [e = _OSCCON -> -> 112 `i `uc ]
-"44
-[; ;mainL1.c: 44:     OSCCON2 = 0x10;
+"41
+[; ;mainL1.c: 41:     OSCCON2 = 0x10;
 [e = _OSCCON2 -> -> 16 `i `uc ]
-"47
-[; ;mainL1.c: 47:     ACTCON = 0x90;
+"44
+[; ;mainL1.c: 44:     ACTCON = 0x90;
 [e = _ACTCON -> -> 144 `i `uc ]
-"49
-[; ;mainL1.c: 49:     TRISA = 0b00000001;
+"46
+[; ;mainL1.c: 46:     TRISA = 0b00000001;
 [e = _TRISA -> -> 1 `i `uc ]
-"50
-[; ;mainL1.c: 50:     LATA = 0x00;
+"47
+[; ;mainL1.c: 47:     LATA = 0x00;
 [e = _LATA -> -> 0 `i `uc ]
-"51
-[; ;mainL1.c: 51:     ANSELA = 0b00000000;
+"48
+[; ;mainL1.c: 48:     ANSELA = 0b00000000;
 [e = _ANSELA -> -> 0 `i `uc ]
-"52
-[; ;mainL1.c: 52:     ADCON1 = 0x00;
+"49
+[; ;mainL1.c: 49:     ADCON1 = 0x00;
 [e = _ADCON1 -> -> 0 `i `uc ]
-"53
-[; ;mainL1.c: 53:     CM1CON0 = 0x00;
+"50
+[; ;mainL1.c: 50:     CM1CON0 = 0x00;
 [e = _CM1CON0 -> -> 0 `i `uc ]
-"55
-[; ;mainL1.c: 55:     TRISB = 0x00;
+"52
+[; ;mainL1.c: 52:     TRISB = 0x00;
 [e = _TRISB -> -> 0 `i `uc ]
-"56
-[; ;mainL1.c: 56:     LATB = 0x00;
+"53
+[; ;mainL1.c: 53:     LATB = 0x00;
 [e = _LATB -> -> 0 `i `uc ]
-"58
-[; ;mainL1.c: 58:     TRISC = 0x00;
+"55
+[; ;mainL1.c: 55:     TRISC = 0x00;
 [e = _TRISC -> -> 0 `i `uc ]
-"59
-[; ;mainL1.c: 59:     LATC = 0x00;
+"56
+[; ;mainL1.c: 56:     LATC = 0x00;
 [e = _LATC -> -> 0 `i `uc ]
-"61
-[; ;mainL1.c: 61:     TRISCbits.RC0 = 1;
+"59
+[; ;mainL1.c: 59:     TRISCbits.RC0 = 1;
 [e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
-"62
-[; ;mainL1.c: 62:     TRISAbits.RA4 = 1;
+"60
+[; ;mainL1.c: 60:     TRISAbits.RA4 = 1;
 [e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
-"63
-[; ;mainL1.c: 63: }
+"61
+[; ;mainL1.c: 61: }
 [e :UE 608 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"65
-[; ;mainL1.c: 65: void main() {
+"63
+[; ;mainL1.c: 63: void main() {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
@@ -1304,8 +1319,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v F4565 `uc ~T0 @X0 -> 8 `i s ]
 [i F4565
 :U ..
-"66
-[; ;mainL1.c: 66:     unsigned char dataQueu[] = {0, 0, 0, 0, 0, 0, 0, 0};
+"64
+[; ;mainL1.c: 64:     unsigned char dataQueu[] = {0, 0, 0, 0, 0, 0, 0, 0};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -1318,43 +1333,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v _dataQueu `uc ~T0 @X0 -> 8 `i a ]
 [e = _dataQueu F4565 ]
-"67
-[; ;mainL1.c: 67:     int counter = 0;
+"65
+[; ;mainL1.c: 65:     int counter = 0;
 [v _counter `i ~T0 @X0 1 a ]
 [e = _counter -> 0 `i ]
-"68
-[; ;mainL1.c: 68:     char lastIndex = 0;
+"66
+[; ;mainL1.c: 66:     char lastIndex = 0;
 [v _lastIndex `uc ~T0 @X0 1 a ]
 [e = _lastIndex -> -> 0 `i `uc ]
-"69
-[; ;mainL1.c: 69:     unsigned char average = 0;
+"67
+[; ;mainL1.c: 67:     unsigned char average = 0;
 [v _average `uc ~T0 @X0 1 a ]
 [e = _average -> -> 0 `i `uc ]
-"70
-[; ;mainL1.c: 70:     char restartData, isRaw;
-[v _restartData `uc ~T0 @X0 1 a ]
-[v _isRaw `uc ~T0 @X0 1 a ]
-"72
-[; ;mainL1.c: 72:     initChip();
+"69
+[; ;mainL1.c: 69:     initChip();
 [e ( _initChip ..  ]
-"74
-[; ;mainL1.c: 74:     while (1)
+"71
+[; ;mainL1.c: 71:     while (1)
 [e :U 611 ]
-"75
-[; ;mainL1.c: 75:     {
+"72
+[; ;mainL1.c: 72:     {
 {
-"76
-[; ;mainL1.c: 76:         restartData = PORTCbits.RC0;
-[e = _restartData -> . . _PORTCbits 0 0 `uc ]
-"77
-[; ;mainL1.c: 77:         isRaw = PORTAbits.RA4;
-[e = _isRaw -> . . _PORTAbits 0 4 `uc ]
-"79
-[; ;mainL1.c: 79:         if (PORTCbits.RC0 == 0) {
+"73
+[; ;mainL1.c: 73:         if (PORTCbits.RC0 == 0) {
 [e $ ! == -> . . _PORTCbits 0 0 `i -> 0 `i 613  ]
 {
-"80
-[; ;mainL1.c: 80:             for (char i = 0; i < 8; i++) {
+"74
+[; ;mainL1.c: 74:             for (char i = 0; i < 8; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -1362,35 +1367,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 615  ]
 [e :U 614 ]
 {
-"81
-[; ;mainL1.c: 81:                 dataQueu[i] = 0;
+"75
+[; ;mainL1.c: 75:                 dataQueu[i] = 0;
 [e = *U + &U _dataQueu * -> _i `ux -> -> # *U &U _dataQueu `ui `ux -> -> 0 `i `uc ]
-"82
-[; ;mainL1.c: 82:             }
+"76
+[; ;mainL1.c: 76:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 614  ]
 [e :U 615 ]
 }
-"83
-[; ;mainL1.c: 83:             counter = 0;
+"77
+[; ;mainL1.c: 77:             counter = 0;
 [e = _counter -> 0 `i ]
-"84
-[; ;mainL1.c: 84:             lastIndex = 0;
+"78
+[; ;mainL1.c: 78:             lastIndex = 0;
 [e = _lastIndex -> -> 0 `i `uc ]
-"85
-[; ;mainL1.c: 85:         }
+"79
+[; ;mainL1.c: 79:         }
 }
 [e :U 613 ]
-"88
-[; ;mainL1.c: 88:         if (PORTAbits.RA4 == 1) {
+"82
+[; ;mainL1.c: 82:         if (PORTAbits.RA4 == 1) {
 [e $ ! == -> . . _PORTAbits 0 4 `i -> 1 `i 617  ]
 {
-"89
-[; ;mainL1.c: 89:             dataQueu[lastIndex] = data[counter];
+"83
+[; ;mainL1.c: 83:             dataQueu[lastIndex] = data[counter];
 [e = *U + &U _dataQueu * -> _lastIndex `ux -> -> # *U &U _dataQueu `ui `ux *U + &U _data * -> -> _counter `ui `ux -> -> # *U &U _data `ui `ux ]
-"91
-[; ;mainL1.c: 91:             for (char i = 0; i < 8; i++) {
+"84
+[; ;mainL1.c: 84:             for (char i = 0; i < 8; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
@@ -1398,87 +1403,167 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 619  ]
 [e :U 618 ]
 {
-"93
-[; ;mainL1.c: 93:                 average += dataQueu[i] >> 3;
+"86
+[; ;mainL1.c: 86:                 average += dataQueu[i] >> 3;
 [e =+ _average -> >> -> *U + &U _dataQueu * -> _i `ux -> -> # *U &U _dataQueu `ui `ux `i -> 3 `i `uc ]
-"94
-[; ;mainL1.c: 94:             }
+"87
+[; ;mainL1.c: 87:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 618  ]
 [e :U 619 ]
 }
-"95
-[; ;mainL1.c: 95:         } else {
+"88
+[; ;mainL1.c: 88:         } else {
 }
 [e $U 621  ]
 [e :U 617 ]
 {
-"96
-[; ;mainL1.c: 96:             average = data[counter];
+"89
+[; ;mainL1.c: 89:             average = data[counter];
 [e = _average *U + &U _data * -> -> _counter `ui `ux -> -> # *U &U _data `ui `ux ]
-"97
-[; ;mainL1.c: 97:         }
+"90
+[; ;mainL1.c: 90:         }
 }
 [e :U 621 ]
-"99
-[; ;mainL1.c: 99:         if (((average & 16) >> 4) == 1) {
+"94
+[; ;mainL1.c: 94:         char bitsToLightUpCount = 0;
+[v _bitsToLightUpCount `uc ~T0 @X0 1 a ]
+[e = _bitsToLightUpCount -> -> 0 `i `uc ]
+[v F4573 `uc ~T0 @X0 -> 8 `i s ]
+[i F4573
+:U ..
+"95
+[; ;mainL1.c: 95:         char latValues[] = {0, 0, 0, 0, 0, 0, 0, 0};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+[v _latValues `uc ~T0 @X0 -> 8 `i a ]
+[e = _latValues F4573 ]
+"96
+[; ;mainL1.c: 96:         if (((average & 16) >> 4) == 1) {
 [e $ ! == >> & -> _average `i -> 16 `i -> 4 `i -> 1 `i 622  ]
 {
-"100
-[; ;mainL1.c: 100:             LATB = (average >> 5) + 1;
-[e = _LATB -> + >> -> _average `i -> 5 `i -> 1 `i `uc ]
-"101
-[; ;mainL1.c: 101:         } else {
+"97
+[; ;mainL1.c: 97:             bitsToLightUpCount = (average >> 5) + 1;
+[e = _bitsToLightUpCount -> + >> -> _average `i -> 5 `i -> 1 `i `uc ]
+"98
+[; ;mainL1.c: 98:         } else {
 }
 [e $U 623  ]
 [e :U 622 ]
 {
-"102
-[; ;mainL1.c: 102:             LATB = average >> 5;
-[e = _LATB -> >> -> _average `i -> 5 `i `uc ]
-"103
-[; ;mainL1.c: 103:         }
+"99
+[; ;mainL1.c: 99:             bitsToLightUpCount = average >> 5;
+[e = _bitsToLightUpCount -> >> -> _average `i -> 5 `i `uc ]
+"100
+[; ;mainL1.c: 100:         }
 }
 [e :U 623 ]
-"142
-[; ;mainL1.c: 142:         counter++;
-[e ++ _counter -> 1 `i ]
-"143
-[; ;mainL1.c: 143:         if (counter >= 512) {
-[e $ ! >= _counter -> 512 `i 624  ]
+"102
+[; ;mainL1.c: 102:         while (bitsToLightUpCount - 1 >= 0) {
+[e $U 624  ]
+[e :U 625 ]
 {
-"144
-[; ;mainL1.c: 144:             counter = 0;
-[e = _counter -> 0 `i ]
-"145
-[; ;mainL1.c: 145:         }
+"103
+[; ;mainL1.c: 103:             latValues[bitsToLightUpCount - 1] = 1;
+[e = *U + &U _latValues * -> -> - -> _bitsToLightUpCount `i -> 1 `i `ui `ux -> -> # *U &U _latValues `ui `ux -> -> 1 `i `uc ]
+"104
+[; ;mainL1.c: 104:             bitsToLightUpCount--;
+[e -- _bitsToLightUpCount -> -> 1 `i `uc ]
+"105
+[; ;mainL1.c: 105:         }
 }
 [e :U 624 ]
-"148
-[; ;mainL1.c: 148:         lastIndex++;
-[e ++ _lastIndex -> -> 1 `i `uc ]
-"149
-[; ;mainL1.c: 149:         if (lastIndex >= 8) {
-[e $ ! >= -> _lastIndex `i -> 8 `i 625  ]
+"102
+[; ;mainL1.c: 102:         while (bitsToLightUpCount - 1 >= 0) {
+[e $ >= - -> _bitsToLightUpCount `i -> 1 `i -> 0 `i 625  ]
+[e :U 626 ]
+"107
+[; ;mainL1.c: 107:         LATBbits.LATB0 = latValues[0];
+[e = . . _LATBbits 0 0 -> *U + &U _latValues * -> -> -> 0 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"108
+[; ;mainL1.c: 108:         LATBbits.LATB1 = latValues[1];
+[e = . . _LATBbits 0 1 -> *U + &U _latValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"109
+[; ;mainL1.c: 109:         LATBbits.LATB2 = latValues[2];
+[e = . . _LATBbits 0 2 -> *U + &U _latValues * -> -> -> 2 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"110
+[; ;mainL1.c: 110:         LATBbits.LATB3 = latValues[3];
+[e = . . _LATBbits 0 3 -> *U + &U _latValues * -> -> -> 3 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"111
+[; ;mainL1.c: 111:         LATBbits.LATB4 = latValues[4];
+[e = . . _LATBbits 0 4 -> *U + &U _latValues * -> -> -> 4 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"112
+[; ;mainL1.c: 112:         LATBbits.LATB5 = latValues[5];
+[e = . . _LATBbits 0 5 -> *U + &U _latValues * -> -> -> 5 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"113
+[; ;mainL1.c: 113:         LATBbits.LATB6 = latValues[6];
+[e = . . _LATBbits 0 6 -> *U + &U _latValues * -> -> -> 6 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"114
+[; ;mainL1.c: 114:         LATBbits.LATB7 = latValues[7];
+[e = . . _LATBbits 0 7 -> *U + &U _latValues * -> -> -> 7 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"117
+[; ;mainL1.c: 117:         for (unsigned long i = 0; i < 100000; i++) {
 {
-"150
-[; ;mainL1.c: 150:             lastIndex = 0;
-[e = _lastIndex -> -> 0 `i `uc ]
-"151
-[; ;mainL1.c: 151:         }
+[v _i `ul ~T0 @X0 1 a ]
+[e = _i -> -> -> 0 `i `l `ul ]
+[e $ < _i -> -> 100000 `l `ul 627  ]
+[e $U 628  ]
+[e :U 627 ]
+{
+"118
+[; ;mainL1.c: 118:         }
 }
-[e :U 625 ]
-"154
-[; ;mainL1.c: 154:         average = 0;
+[e ++ _i -> -> -> 1 `i `l `ul ]
+[e $ < _i -> -> 100000 `l `ul 627  ]
+[e :U 628 ]
+}
+"121
+[; ;mainL1.c: 121:         counter++;
+[e ++ _counter -> 1 `i ]
+"122
+[; ;mainL1.c: 122:         if (counter >= 512) {
+[e $ ! >= _counter -> 512 `i 630  ]
+{
+"123
+[; ;mainL1.c: 123:             counter = 0;
+[e = _counter -> 0 `i ]
+"124
+[; ;mainL1.c: 124:         }
+}
+[e :U 630 ]
+"127
+[; ;mainL1.c: 127:         lastIndex++;
+[e ++ _lastIndex -> -> 1 `i `uc ]
+"128
+[; ;mainL1.c: 128:         if (lastIndex >= 8) {
+[e $ ! >= -> _lastIndex `i -> 8 `i 631  ]
+{
+"129
+[; ;mainL1.c: 129:             lastIndex = 0;
+[e = _lastIndex -> -> 0 `i `uc ]
+"130
+[; ;mainL1.c: 130:         }
+}
+[e :U 631 ]
+"133
+[; ;mainL1.c: 133:         average = 0;
 [e = _average -> -> 0 `i `uc ]
-"156
-[; ;mainL1.c: 156:     }
+"135
+[; ;mainL1.c: 135:     }
 }
 [e :U 610 ]
 [e $U 611  ]
 [e :U 612 ]
-"157
-[; ;mainL1.c: 157: }
+"136
+[; ;mainL1.c: 136: }
 [e :UE 609 ]
 }

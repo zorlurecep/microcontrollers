@@ -123,6 +123,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2837
 [; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 2837: extern volatile PORTAbits_t PORTAbits __attribute__((address(0xF80)));
 [v _PORTAbits `VS124 ~T0 @X0 0 e@3968 ]
+"3590
+[; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 3590:     struct {
+[s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S157 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"3600
+[; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 3600:     struct {
+[s S158 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S158 . LB0 LB1 LB2 LB3 LB4 LB5 LB6 LB7 ]
+"3589
+[; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 3589: typedef union {
+[u S156 `S157 1 `S158 1 ]
+[n S156 . . . ]
+"3611
+[; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 3611: extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
+[v _LATBbits `VS156 ~T0 @X0 0 e@3978 ]
 "54 /opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h
 [; ;/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h: 54: __asm("SRCON1 equ 0F57h");
 [; <" SRCON1 equ 0F57h ;# ">
@@ -1412,79 +1427,143 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 621 ]
 "94
-[; ;mainL1.c: 94:         if (((average & 16) >> 4) == 1) {
+[; ;mainL1.c: 94:         char bitsToLightUpCount = 0;
+[v _bitsToLightUpCount `uc ~T0 @X0 1 a ]
+[e = _bitsToLightUpCount -> -> 0 `i `uc ]
+[v F4573 `uc ~T0 @X0 -> 8 `i s ]
+[i F4573
+:U ..
+"95
+[; ;mainL1.c: 95:         char latValues[] = {0, 0, 0, 0, 0, 0, 0, 0};
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+[v _latValues `uc ~T0 @X0 -> 8 `i a ]
+[e = _latValues F4573 ]
+"96
+[; ;mainL1.c: 96:         if (((average & 16) >> 4) == 1) {
 [e $ ! == >> & -> _average `i -> 16 `i -> 4 `i -> 1 `i 622  ]
 {
-"95
-[; ;mainL1.c: 95:             LATB = (average >> 5) + 1;
-[e = _LATB -> + >> -> _average `i -> 5 `i -> 1 `i `uc ]
-"96
-[; ;mainL1.c: 96:         } else {
+"97
+[; ;mainL1.c: 97:             bitsToLightUpCount = (average >> 5) + 1;
+[e = _bitsToLightUpCount -> + >> -> _average `i -> 5 `i -> 1 `i `uc ]
+"98
+[; ;mainL1.c: 98:         } else {
 }
 [e $U 623  ]
 [e :U 622 ]
 {
-"97
-[; ;mainL1.c: 97:             LATB = average >> 5;
-[e = _LATB -> >> -> _average `i -> 5 `i `uc ]
-"98
-[; ;mainL1.c: 98:         }
+"99
+[; ;mainL1.c: 99:             bitsToLightUpCount = average >> 5;
+[e = _bitsToLightUpCount -> >> -> _average `i -> 5 `i `uc ]
+"100
+[; ;mainL1.c: 100:         }
 }
 [e :U 623 ]
-"101
-[; ;mainL1.c: 101:         for (unsigned long i = 0; i < 100000; i++) {
+"102
+[; ;mainL1.c: 102:         while (bitsToLightUpCount - 1 >= 0) {
+[e $U 624  ]
+[e :U 625 ]
+{
+"103
+[; ;mainL1.c: 103:             latValues[bitsToLightUpCount - 1] = 1;
+[e = *U + &U _latValues * -> -> - -> _bitsToLightUpCount `i -> 1 `i `ui `ux -> -> # *U &U _latValues `ui `ux -> -> 1 `i `uc ]
+"104
+[; ;mainL1.c: 104:             bitsToLightUpCount--;
+[e -- _bitsToLightUpCount -> -> 1 `i `uc ]
+"105
+[; ;mainL1.c: 105:         }
+}
+[e :U 624 ]
+"102
+[; ;mainL1.c: 102:         while (bitsToLightUpCount - 1 >= 0) {
+[e $ >= - -> _bitsToLightUpCount `i -> 1 `i -> 0 `i 625  ]
+[e :U 626 ]
+"107
+[; ;mainL1.c: 107:         LATBbits.LATB0 = latValues[0];
+[e = . . _LATBbits 0 0 -> *U + &U _latValues * -> -> -> 0 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"108
+[; ;mainL1.c: 108:         LATBbits.LATB1 = latValues[1];
+[e = . . _LATBbits 0 1 -> *U + &U _latValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"109
+[; ;mainL1.c: 109:         LATBbits.LATB2 = latValues[2];
+[e = . . _LATBbits 0 2 -> *U + &U _latValues * -> -> -> 2 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"110
+[; ;mainL1.c: 110:         LATBbits.LATB3 = latValues[3];
+[e = . . _LATBbits 0 3 -> *U + &U _latValues * -> -> -> 3 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"111
+[; ;mainL1.c: 111:         LATBbits.LATB4 = latValues[4];
+[e = . . _LATBbits 0 4 -> *U + &U _latValues * -> -> -> 4 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"112
+[; ;mainL1.c: 112:         LATBbits.LATB5 = latValues[5];
+[e = . . _LATBbits 0 5 -> *U + &U _latValues * -> -> -> 5 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"113
+[; ;mainL1.c: 113:         LATBbits.LATB6 = latValues[6];
+[e = . . _LATBbits 0 6 -> *U + &U _latValues * -> -> -> 6 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"114
+[; ;mainL1.c: 114:         LATBbits.LATB7 = latValues[7];
+[e = . . _LATBbits 0 7 -> *U + &U _latValues * -> -> -> 7 `i `ui `ux -> -> # *U &U _latValues `ui `ux `uc ]
+"117
+[; ;mainL1.c: 117:         for (unsigned long i = 0; i < 240000; i++) {
 {
 [v _i `ul ~T0 @X0 1 a ]
 [e = _i -> -> -> 0 `i `l `ul ]
-[e $ < _i -> -> 100000 `l `ul 624  ]
-[e $U 625  ]
-[e :U 624 ]
+[e $ < _i -> -> 240000 `l `ul 627  ]
+[e $U 628  ]
+[e :U 627 ]
 {
-"102
-[; ;mainL1.c: 102:         }
+"118
+[; ;mainL1.c: 118:         }
 }
 [e ++ _i -> -> -> 1 `i `l `ul ]
-[e $ < _i -> -> 100000 `l `ul 624  ]
-[e :U 625 ]
-}
-"105
-[; ;mainL1.c: 105:         counter++;
-[e ++ _counter -> 1 `i ]
-"106
-[; ;mainL1.c: 106:         if (counter >= 512) {
-[e $ ! >= _counter -> 512 `i 627  ]
-{
-"107
-[; ;mainL1.c: 107:             counter = 0;
-[e = _counter -> 0 `i ]
-"108
-[; ;mainL1.c: 108:         }
-}
-[e :U 627 ]
-"111
-[; ;mainL1.c: 111:         lastIndex++;
-[e ++ _lastIndex -> -> 1 `i `uc ]
-"112
-[; ;mainL1.c: 112:         if (lastIndex >= 8) {
-[e $ ! >= -> _lastIndex `i -> 8 `i 628  ]
-{
-"113
-[; ;mainL1.c: 113:             lastIndex = 0;
-[e = _lastIndex -> -> 0 `i `uc ]
-"114
-[; ;mainL1.c: 114:         }
-}
+[e $ < _i -> -> 240000 `l `ul 627  ]
 [e :U 628 ]
-"117
-[; ;mainL1.c: 117:         average = 0;
+}
+"121
+[; ;mainL1.c: 121:         counter++;
+[e ++ _counter -> 1 `i ]
+"122
+[; ;mainL1.c: 122:         if (counter >= 512) {
+[e $ ! >= _counter -> 512 `i 630  ]
+{
+"123
+[; ;mainL1.c: 123:             counter = 0;
+[e = _counter -> 0 `i ]
+"124
+[; ;mainL1.c: 124:         }
+}
+[e :U 630 ]
+"127
+[; ;mainL1.c: 127:         lastIndex++;
+[e ++ _lastIndex -> -> 1 `i `uc ]
+"128
+[; ;mainL1.c: 128:         if (lastIndex >= 8) {
+[e $ ! >= -> _lastIndex `i -> 8 `i 631  ]
+{
+"129
+[; ;mainL1.c: 129:             lastIndex = 0;
+[e = _lastIndex -> -> 0 `i `uc ]
+"130
+[; ;mainL1.c: 130:         }
+}
+[e :U 631 ]
+"133
+[; ;mainL1.c: 133:         average = 0;
 [e = _average -> -> 0 `i `uc ]
-"119
-[; ;mainL1.c: 119:     }
+"135
+[; ;mainL1.c: 135:     }
 }
 [e :U 610 ]
 [e $U 611  ]
 [e :U 612 ]
-"120
-[; ;mainL1.c: 120: }
+"136
+[; ;mainL1.c: 136: }
 [e :UE 609 ]
 }

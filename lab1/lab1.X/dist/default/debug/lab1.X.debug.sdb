@@ -27,9 +27,9 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 /opt/microchip/xc8/v2.32/pic/sources/c99/common/Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"40 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
+"37 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
 [v _initChip initChip `(v  1 e 1 0 ]
-"65
+"63
 [v _main main `(v  1 e 1 0 ]
 "232 /opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/proc/pic18f25k50.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3931 ]
@@ -103,6 +103,27 @@
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "3584
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
+[s S247 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"3611
+[s S256 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S265 . 1 `S247 1 . 1 0 `S256 1 . 1 0 ]
+[v _LATBbits LATBbits `VES265  1 e 1 @3978 ]
 "3696
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "4155
@@ -154,27 +175,33 @@
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
 "11547
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-"35 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
+"32 /home/roza/Documents/source/repos/microcontrollers/lab1/lab1.X/mainL1.c
 [v _data data `C[512]uc  1 e 512 0 ]
-"65
+"63
 [v _main main `(v  1 e 1 0 ]
 {
-"91
-[v main@i_293 i `uc  1 a 1 14 ]
-"80
-[v main@i i `uc  1 a 1 13 ]
-"66
-[v main@dataQueu dataQueu `[8]uc  1 a 8 2 ]
+"84
+[v main@i_331 i `uc  1 a 1 29 ]
+"74
+[v main@i i `uc  1 a 1 28 ]
+"117
+[v main@i_343 i `ul  1 a 4 20 ]
+"95
+[v main@latValues latValues `[8]uc  1 a 8 12 ]
+"94
+[v main@bitsToLightUpCount bitsToLightUpCount `uc  1 a 1 25 ]
+"64
+[v main@dataQueu dataQueu `[8]uc  1 a 8 4 ]
+"65
+[v main@counter counter `i  1 a 2 26 ]
 "67
-[v main@counter counter `i  1 a 2 11 ]
-"69
-[v main@average average `uc  1 a 1 15 ]
-"68
-[v main@lastIndex lastIndex `uc  1 a 1 10 ]
-"157
+[v main@average average `uc  1 a 1 30 ]
+"66
+[v main@lastIndex lastIndex `uc  1 a 1 24 ]
+"136
 } 0
-"40
+"37
 [v _initChip initChip `(v  1 e 1 0 ]
 {
-"63
+"61
 } 0

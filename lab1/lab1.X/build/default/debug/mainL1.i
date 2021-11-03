@@ -7,7 +7,7 @@
 # 1 "/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "mainL1.c" 2
-# 25 "mainL1.c"
+# 22 "mainL1.c"
 # 1 "/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -7572,7 +7572,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "/opt/microchip/mplabx/v5.50/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8/pic/include/xc.h" 2 3
-# 25 "mainL1.c" 2
+# 22 "mainL1.c" 2
 
 
 
@@ -7609,6 +7609,7 @@ void initChip(void) {
     TRISC = 0x00;
     LATC = 0x00;
 
+
     TRISCbits.RC0 = 1;
     TRISAbits.RA4 = 1;
 }
@@ -7618,15 +7619,11 @@ void main() {
     int counter = 0;
     char lastIndex = 0;
     unsigned char average = 0;
-    char restartData, isRaw;
 
     initChip();
 
     while (1)
     {
-        restartData = PORTCbits.RC0;
-        isRaw = PORTAbits.RA4;
-
         if (PORTCbits.RC0 == 0) {
             for (char i = 0; i < 8; i++) {
                 dataQueu[i] = 0;
@@ -7638,7 +7635,6 @@ void main() {
 
         if (PORTAbits.RA4 == 1) {
             dataQueu[lastIndex] = data[counter];
-
             for (char i = 0; i < 8; i++) {
 
                 average += dataQueu[i] >> 3;
@@ -7647,12 +7643,35 @@ void main() {
             average = data[counter];
         }
 
+
+
+        char bitsToLightUpCount = 0;
+        char latValues[] = {0, 0, 0, 0, 0, 0, 0, 0};
         if (((average & 16) >> 4) == 1) {
-            LATB = (average >> 5) + 1;
+            bitsToLightUpCount = (average >> 5) + 1;
         } else {
-            LATB = average >> 5;
+            bitsToLightUpCount = average >> 5;
         }
-# 142 "mainL1.c"
+
+        while (bitsToLightUpCount - 1 >= 0) {
+            latValues[bitsToLightUpCount - 1] = 1;
+            bitsToLightUpCount--;
+        }
+
+        LATBbits.LATB0 = latValues[0];
+        LATBbits.LATB1 = latValues[1];
+        LATBbits.LATB2 = latValues[2];
+        LATBbits.LATB3 = latValues[3];
+        LATBbits.LATB4 = latValues[4];
+        LATBbits.LATB5 = latValues[5];
+        LATBbits.LATB6 = latValues[6];
+        LATBbits.LATB7 = latValues[7];
+
+
+        for (unsigned long i = 0; i < 100000; i++) {
+        }
+
+
         counter++;
         if (counter >= 512) {
             counter = 0;
